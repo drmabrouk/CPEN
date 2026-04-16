@@ -40,8 +40,8 @@
 }
 
 body, .control-dashboard {
-    direction: rtl;
-    text-align: right;
+    direction: inherit;
+    text-align: start;
     min-height: 100vh;
     background: var(--control-bg);
     margin: 0;
@@ -59,12 +59,12 @@ body, .control-dashboard {
     color: var(--control-sidebar-text);
     position: fixed !important;
     top: 0 !important;
-    right: 0 !important;
+    inset-inline-start: 0 !important;
     height: 100vh !important;
     z-index: 9999 !important;
     display: flex;
     flex-direction: column;
-    border-left: 1px solid rgba(255,255,255,0.05);
+    border-inline-end: 1px solid rgba(255,255,255,0.05);
     box-shadow: 10px 0 30px rgba(0,0,0,0.1);
 }
 
@@ -135,7 +135,7 @@ body, .control-dashboard {
     border: none;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
     gap: 10px;
     padding: 0 15px;
     font-size: 0.75rem;
@@ -146,7 +146,7 @@ body, .control-dashboard {
 
 .sidebar-action-btn span:first-child {
     flex: 1;
-    text-align: right;
+    text-align: start;
 }
 
 .sidebar-action-btn .dashicons {
@@ -167,8 +167,49 @@ body, .control-dashboard {
 .full-width { width: 100%; }
 .half-width { flex: 1; }
 
+/* Language Switcher */
+.control-lang-switcher-sidebar {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+    padding: 0 10px;
+}
+
+.control-lang-switcher-sidebar .lang-btn {
+    flex: 1;
+    text-align: center;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    color: var(--control-sidebar-text);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    transition: var(--control-transition);
+}
+
+.control-lang-switcher-sidebar .lang-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.control-lang-switcher-sidebar .lang-btn.active {
+    background: var(--control-accent);
+    color: var(--control-primary-soft);
+}
+
+.control-lang-switcher-mobile .lang-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.85rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
 .control-main-content {
-    margin-right: 240px;
+    margin-inline-start: 240px;
     padding: 25px;
     min-height: 100vh;
 }
@@ -706,7 +747,7 @@ body, .control-dashboard {
 .control-policies-display h2 { color: var(--control-primary); border-bottom: 2px solid var(--control-accent); padding-bottom: 10px; margin-bottom: 20px; }
 .control-policies-display h3 { color: var(--control-text-dark); margin-top: 30px; }
 .control-policies-display p { margin-bottom: 15px; }
-.control-policies-display ul { margin-bottom: 20px; padding-right: 20px; }
+.control-policies-display ul { margin-bottom: 20px; padding-inline-start: 20px; }
 .control-policies-display li { margin-bottom: 8px; }
 
 /* Grid & Layout */
@@ -782,7 +823,7 @@ body, .control-dashboard {
 /* Responsive Adjustments */
 @media (max-width: 1024px) {
     .control-sidebar { display: none !important; }
-    .control-main-content { margin-right: 0 !important; padding: 15px; padding-bottom: 90px; }
+    .control-main-content { margin-inline-start: 0 !important; padding: 15px; padding-bottom: 90px; }
     .control-metrics-grid { grid-template-columns: 1fr 1fr; }
 
     .control-settings-wrapper { grid-template-columns: 1fr !important; }
@@ -835,7 +876,7 @@ body, .control-dashboard {
 .control-form-group label {
     position: absolute;
     top: 50%;
-    right: 18px;
+    inset-inline-start: 18px;
     transform: translateY(-50%);
     background: transparent;
     padding: 0 5px;
@@ -852,7 +893,7 @@ body, .control-dashboard {
 .control-form-group select:focus ~ label,
 .control-form-group textarea:focus ~ label {
     top: 0;
-    right: 12px;
+    inset-inline-start: 12px;
     font-size: 0.75rem;
     font-weight: 800;
     color: var(--auth-input-focus, var(--control-accent));

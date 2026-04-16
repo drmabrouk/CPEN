@@ -218,11 +218,11 @@ class Control_Database {
 			'auth_registration_form_visible' => '1',
 			'auth_login_form_visible'        => '1',
 			'auth_registration_fields'       => json_encode(array(
-				array('id' => 'first_name', 'label' => 'الاسم الأول', 'enabled' => true, 'required' => true),
-				array('id' => 'last_name', 'label' => 'اسم العائلة', 'enabled' => true, 'required' => true),
-				array('id' => 'phone', 'label' => 'رقم الهاتف', 'enabled' => true, 'required' => true),
-				array('id' => 'email', 'label' => 'البريد الإلكتروني', 'enabled' => true, 'required' => true),
-				array('id' => 'password', 'label' => 'كلمة المرور', 'enabled' => true, 'required' => true),
+				array('id' => 'first_name', 'label' => 'First Name', 'enabled' => true, 'required' => true),
+				array('id' => 'last_name', 'label' => 'Last Name', 'enabled' => true, 'required' => true),
+				array('id' => 'phone', 'label' => 'Phone Number', 'enabled' => true, 'required' => true),
+				array('id' => 'email', 'label' => 'Email Address', 'enabled' => true, 'required' => true),
+				array('id' => 'password', 'label' => 'Password', 'enabled' => true, 'required' => true),
 			)),
 			'auth_logo_visible'      => '1',
 			'auth_bg_color'          => '#000000',
@@ -235,12 +235,12 @@ class Control_Database {
 			'auth_input_bg'          => 'transparent',
 			'auth_input_border'      => 'rgba(255,255,255,0.2)',
 			'auth_input_focus'       => '#D4AF37',
-			'auth_heading_text'      => 'مرحباً بك في نظام الإدارة',
-			'auth_subtitle_text'     => 'نظام الإدارة المتكامل والأكثر تطوراً',
+			'auth_heading_text'      => 'Welcome to the Management System',
+			'auth_subtitle_text'     => 'The integrated and most advanced management system',
 			'auth_layout_template'   => 'centered',
 			'auth_title_visible'     => '1',
 			'auth_subtitle_visible'  => '1',
-			'policies_content'       => '<h2>الشروط والأحكام</h2><p>هنا تدرج سياسات النظام والشروط القانونية المنظمة للعمل.</p>',
+			'policies_content'       => '<h2>Terms and Conditions</h2><p>System policies and legal terms governing work are listed here.</p>',
 		);
 
 		foreach ( $defaults as $key => $value ) {
@@ -259,13 +259,13 @@ class Control_Database {
 			$existing_policy = $wpdb->get_var("SELECT setting_value FROM $table_settings WHERE setting_key = 'policies_content'");
 			if ($existing_policy) {
 				$wpdb->insert($table_policies, array(
-					'title' => 'الشروط والأحكام العامة',
+					'title' => 'General Terms and Conditions',
 					'content' => $existing_policy
 				));
 			} else {
 				$wpdb->insert($table_policies, array(
-					'title' => 'سياسة الخصوصية',
-					'content' => '<h2>سياسة الخصوصية</h2><p>نحن نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية.</p>'
+					'title' => 'Privacy Policy',
+					'content' => '<h2>Privacy Policy</h2><p>We respect your privacy and are committed to protecting your personal data.</p>'
 				));
 			}
 		}
@@ -273,36 +273,36 @@ class Control_Database {
 		// Seed Email Templates
 		$templates = array(
 			'welcome_email' => array(
-				'subject' => 'مرحباً بك في منصة {system_name}',
-				'content' => '<h1>أهلاً بك يا {user_name}!</h1><p>يسعدنا انضمامك إلى منصتنا الاحترافية. نحن هنا لنوفر لك أفضل الأدوات لإدارة مهامك بكفاءة.</p><h3>ماذا تقدم لك المنصة؟</h3><ul><li>إدارة شاملة للكوادر البشرية</li><li>نظام صلاحيات متطور</li><li>لوحة تحكم تفاعلية وتقارير مباشرة</li></ul><p>يمكنك البدء الآن بتسجيل الدخول واستكمال بيانات ملفك الشخصي.</p>'
+				'subject' => 'Welcome to {system_name}',
+				'content' => '<h1>Welcome {user_name}!</h1><p>We are glad to have you join our professional platform. We are here to provide you with the best tools to manage your tasks efficiently.</p><h3>What does the platform offer?</h3><ul><li>Comprehensive human resource management</li><li>Advanced permissions system</li><li>Interactive dashboard and direct reports</li></ul><p>You can start now by logging in and completing your profile data.</p>'
 			),
 			'engagement_reminder' => array(
-				'subject' => 'نفتقد وجودك في {system_name}',
-				'content' => '<h1>أهلاً {user_name}،</h1><p>لاحظنا غيابك عن المنصة لفترة من الوقت. نود تذكيرك بأن هناك تحديثات وأدوات جديدة بانتظارك.</p><p>ندعوك لتسجيل الدخول الآن والاطلاع على آخر المستجدات في لوحة التحكم الخاصة بك.</p>'
+				'subject' => 'We miss you at {system_name}',
+				'content' => '<h1>Hello {user_name},</h1><p>We noticed your absence from the platform for some time. We would like to remind you that there are updates and new tools waiting for you.</p><p>We invite you to log in now and see the latest developments in your dashboard.</p>'
 			),
 			'password_reset' => array(
-				'subject' => 'طلب استعادة كلمة المرور - {system_name}',
-				'content' => '<h1>أهلاً {user_name}،</h1><p>لقد تلقينا طلباً لإعادة تعيين كلمة المرور الخاصة بحسابك.</p><div style="background:#f1f5f9; padding:20px; border-radius:8px; margin:20px 0;">كلمة المرور المؤقتة الجديدة هي: <strong style="color:var(--control-primary); font-size:1.2rem;">{new_password}</strong></div><p>يرجى تسجيل الدخول وتغيير كلمة المرور فوراً من إعدادات ملفك الشخصي لضمان أمان حسابك.</p>'
+				'subject' => 'Password Reset Request - {system_name}',
+				'content' => '<h1>Hello {user_name},</h1><p>We received a request to reset your account password.</p><div style="background:#f1f5f9; padding:20px; border-radius:8px; margin:20px 0;">The new temporary password is: <strong style="color:var(--control-primary); font-size:1.2rem;">{new_password}</strong></div><p>Please log in and change your password immediately from your profile settings to ensure your account security.</p>'
 			),
 			'account_restriction' => array(
-				'subject' => 'تنبيه: تم تقييد حسابك في {system_name}',
-				'content' => '<h1>عذراً {user_name}،</h1><p>نود إبلاغك بأنه تم تقييد وصولك إلى المنصة مؤقتاً.</p><div style="background:#fff1f2; color:#9f1239; padding:20px; border-radius:8px; margin:20px 0;"><strong>السبب:</strong> {restriction_reason}<br><strong>ينتهي في:</strong> {expiry_date}</div><p>إذا كنت تعتقد أن هذا الإجراء تم بالخطأ، يرجى التواصل مع الدعم الفني أو مدير النظام.</p>'
+				'subject' => 'Alert: Your account has been restricted in {system_name}',
+				'content' => '<h1>Sorry {user_name},</h1><p>We would like to inform you that your access to the platform has been temporarily restricted.</p><div style="background:#fff1f2; color:#9f1239; padding:20px; border-radius:8px; margin:20px 0;"><strong>Reason:</strong> {restriction_reason}<br><strong>Expires on:</strong> {expiry_date}</div><p>If you believe this action was taken in error, please contact technical support or the system administrator.</p>'
 			),
 			'new_login_alert' => array(
-				'subject' => 'تنبيه أمني: دخول جديد لحسابك في {system_name}',
-				'content' => '<h1>تنبيه أمني</h1><p>أهلاً {user_name}، لقد تم رصد عملية دخول جديدة لحسابك الآن.</p><div style="background:#f8fafc; padding:20px; border-radius:8px; margin:20px 0;"><strong>الوقت:</strong> {login_time}<br><strong>الجهاز:</strong> {device_type}<br><strong>عنوان IP:</strong> {ip_address}</div><p>إذا لم تكن أنت من قام بهذه العملية، يرجى تغيير كلمة المرور فوراً والتواصل مع الإدارة.</p>'
+				'subject' => 'Security Alert: New login to your account in {system_name}',
+				'content' => '<h1>Security Alert</h1><p>Hello {user_name}, a new login to your account has been detected now.</p><div style="background:#f8fafc; padding:20px; border-radius:8px; margin:20px 0;"><strong>Time:</strong> {login_time}<br><strong>Device:</strong> {device_type}<br><strong>IP Address:</strong> {ip_address}</div><p>If you did not perform this operation, please change your password immediately and contact management.</p>'
 			),
 			'email_verification_otp' => array(
-				'subject' => 'رمز التحقق الخاص بك - {system_name}',
-				'content' => '<h1>تحقق من بريدك الإلكتروني</h1><p>أهلاً بك، يرجى استخدام الرمز التالي لإكمال عملية التسجيل في المنصة. هذا الرمز صالح لمدة 10 دقائق فقط.</p><div style="background:#f1f5f9; padding:30px; border-radius:12px; margin:20px 0; text-align:center;"><span style="font-size:32px; font-weight:800; color:var(--control-primary); letter-spacing:10px;">{otp_code}</span></div><p>إذا لم تكن أنت من بدأ هذا الطلب، يرجى تجاهل هذا البريد.</p>'
+				'subject' => 'Your Verification Code - {system_name}',
+				'content' => '<h1>Verify Your Email</h1><p>Welcome, please use the following code to complete the registration process. This code is valid for 10 minutes only.</p><div style="background:#f1f5f9; padding:30px; border-radius:12px; margin:20px 0; text-align:center;"><span style="font-size:32px; font-weight:800; color:var(--control-primary); letter-spacing:10px;">{otp_code}</span></div><p>If you did not start this request, please ignore this email.</p>'
 			),
 			'password_reset_link' => array(
-				'subject' => 'استعادة كلمة المرور - {system_name}',
-				'content' => '<h1>أهلاً {user_name}،</h1><p>لقد تلقينا طلباً لإعادة تعيين كلمة المرور الخاصة بحسابك. يمكنك القيام بذلك من خلال الضغط على الزر أدناه:</p><div style="text-align:center; margin:30px 0;"><a href="{reset_url}" style="background:var(--control-primary); color:#fff; padding:15px 30px; border-radius:8px; text-decoration:none; font-weight:bold; display:inline-block;">تعيين كلمة مرور جديدة</a></div><p>هذا الرابط صالح لمدة 24 ساعة فقط. إذا لم تطلب استعادة كلمة المرور، يرجى تجاهل هذا البريد.</p>'
+				'subject' => 'Password Recovery - {system_name}',
+				'content' => '<h1>Hello {user_name},</h1><p>We received a request to reset your account password. You can do this by clicking the button below:</p><div style="text-align:center; margin:30px 0;"><a href="{reset_url}" style="background:var(--control-primary); color:#fff; padding:15px 30px; border-radius:8px; text-decoration:none; font-weight:bold; display:inline-block;">Set New Password</a></div><p>This link is valid for 24 hours only. If you did not request a password reset, please ignore this email.</p>'
 			),
 			'password_recovery_otp' => array(
-				'subject' => 'رمز استعادة كلمة المرور - {system_name}',
-				'content' => '<h1>استعادة كلمة المرور</h1><p>أهلاً بك، يرجى استخدام رمز التحقق التالي لاستكمال عملية استعادة كلمة المرور الخاصة بحسابك. هذا الرمز صالح لمدة 10 دقائق فقط.</p><div style="background:#f1f5f9; padding:30px; border-radius:12px; margin:20px 0; text-align:center;"><span style="font-size:32px; font-weight:800; color:var(--control-primary); letter-spacing:10px;">{otp_code}</span></div><p>إذا لم تطلب استعادة كلمة المرور، يرجى تجاهل هذا البريد وتأمين حسابك.</p>'
+				'subject' => 'Password Recovery Code - {system_name}',
+				'content' => '<h1>Password Recovery</h1><p>Welcome, please use the following verification code to complete the password recovery process. This code is valid for 10 minutes only.</p><div style="background:#f1f5f9; padding:30px; border-radius:12px; margin:20px 0; text-align:center;"><span style="font-size:32px; font-weight:800; color:var(--control-primary); letter-spacing:10px;">{otp_code}</span></div><p>If you did not request a password recovery, please ignore this email and secure your account.</p>'
 			)
 		);
 

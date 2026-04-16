@@ -1,0 +1,1682 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Control 2.3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-16 23:17+0000\n"
+"PO-Revision-Date: 2026-04-16 23:17+0000\n"
+"Last-Translator: Control Team\n"
+"Language-Team: English\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: php-script\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "%s ago"
+msgstr "%s ago"
+
+msgid "%s حساب المستخدم: %s %s"
+msgstr "%s حساب المستخدم: %s %s"
+
+msgid "آخر 5 نشاطات في النظام"
+msgstr "Last 5 System Activities"
+
+msgid "آخر نشاط"
+msgstr "Last Activity"
+
+msgid "أدخل الرمز المكون من 6 أرقام المرسل لبريدك الإلكتروني."
+msgstr "Enter the 6-digit code sent to your email."
+
+msgid "أدخل رقم هاتفك المسجل وسنقوم بإرسال تعليمات الاستعادة."
+msgstr "Enter your registered phone number and we will send recovery instructions."
+
+msgid "أدخل كلمة \"تأكيد\" بالأسفل للمتابعة:"
+msgstr "Enter the word \"Confirm\" below to proceed:"
+
+msgid "أدوات الإدارة المتقدمة والصيانة"
+msgstr "Advanced Management and Maintenance Tools"
+
+msgid "أدوات لضمان تشغيل النظام بأحدث نسخة وتجاوز مشاكل التخزين المؤقت."
+msgstr "Tools to ensure the system runs on the latest version and bypass cache issues."
+
+msgid "أساسي"
+msgstr "System"
+
+msgid "أسباب أخرى"
+msgstr "Other Reasons"
+
+msgid "أنت على وشك تحديث صلاحيات هذا الدور. سيتم تطبيق التغييرات فوراً على كافة المستخدمين المرتبطين."
+msgstr "You are about to update the permissions for this role. Changes will be applied immediately to all associated users."
+
+msgid "أنت على وشك حذف كافة الكوادر البشرية المسجلة. لن يتم حذف حسابك الحالي. هذا الإجراء نهائي ولا يمكن التراجع عنه."
+msgstr "You are about to delete all registered human resources. Your current account will not be deleted. This action is final and cannot be undone."
+
+msgid "أنت على وشك حذف هذا الدور نهائياً. يرجى اختيار دور بديل للمستخدمين الحاليين المرتبطين بهذا الدور."
+msgstr "You are about to permanently delete this role. Please choose an alternative role for the current users associated with this role."
+
+msgid "أنثى"
+msgstr "Female"
+
+msgid "أهلاً بك في نظام كنترول الإداري."
+msgstr "Welcome to Control Management System."
+
+msgid "أيقونة التطبيق (512x512)"
+msgstr "App Icon (512x512)"
+
+msgid "إتمام التسجيل"
+msgstr "إتمام التسجيل"
+
+msgid "إجمالي المسجلين"
+msgstr "Total Registered"
+
+msgid "إحصائية شاملة لعدد المسجلين حسب كل دور وظيفي."
+msgstr "Comprehensive statistics of registrants by job role."
+
+msgid "إخفاء"
+msgstr "Hide"
+
+msgid "إدارة إعدادات النظام"
+msgstr "إدارة إعدادات النظام"
+
+msgid "إدارة البيانات"
+msgstr "Data Management"
+
+msgid "إدارة التنبيهات والبريد الإلكتروني"
+msgstr "Manage Notifications and Email"
+
+msgid "إدارة السياسات والأحكام"
+msgstr "Manage Policies and Terms"
+
+msgid "إدارة الصلاحيات والأدوار"
+msgstr "إدارة الصلاحيات والأدوار"
+
+msgid "إدارة الكوادر"
+msgstr "Staff Management"
+
+msgid "إدارة الكوادر البشرية"
+msgstr "Human Resources Management"
+
+msgid "إدارة النسخ الاحتياطي"
+msgstr "إدارة النسخ الاحتياطي"
+
+msgid "إدارة بيانات المستخدمين (استيراد / تصدير)"
+msgstr "User Data Management (Import / Export)"
+
+msgid "إذا واجهت أي مشاكل في عرض التحديثات الجديدة، استخدم هذا الزر لمسح بيانات التخزين المؤقت للمتصفح وإعادة تحميل النظام كلياً."
+msgstr "If you encounter any issues displaying new updates, use this button to clear browser cache and reload the system entirely."
+
+msgid "إرسال البريد الآن"
+msgstr "Send Email Now"
+
+msgid "إرسال البريد الإلكتروني"
+msgstr "إرسال البريد الإلكتروني"
+
+msgid "إرسال بريد"
+msgstr "Send Email"
+
+msgid "إرسال بريد جماعي"
+msgstr "إرسال بريد جماعي"
+
+msgid "إرسال بريد لـ %d مستخدم مختار"
+msgstr "Send mail to %d selected users"
+
+msgid "إرسال بريد لمستخدم واحد"
+msgstr "Send mail to one user"
+
+msgid "إرسال بريد يدوي لـ %d مستخدم"
+msgstr "إرسال بريد يدوي لـ %d مستخدم"
+
+msgid "إرسال رابط استعادة كلمة المرور"
+msgstr "Send password reset link"
+
+msgid "إرسال رمز التحقق"
+msgstr "Send Verification Code"
+
+msgid "إزالة جميع الكوادر البشرية المسجلة في النظام دفعة واحدة. (يستثنى المدير الحالي من العملية)."
+msgstr "Remove all human resources registered in the system at once. (The current manager is excluded from the process)."
+
+msgid "إضافة دور"
+msgstr "إضافة دور"
+
+msgid "إضافة دور جديد"
+msgstr "Add New Role"
+
+msgid "إضافة سياسة"
+msgstr "إضافة سياسة"
+
+msgid "إضافة سياسة جديدة"
+msgstr "Add New Policy"
+
+msgid "إضافة كادر"
+msgstr "Add Staff"
+
+msgid "إضافة كادر جديد"
+msgstr "Add New Staff"
+
+msgid "إضافة وتعديل الكوادر"
+msgstr "إضافة وتعديل الكوادر"
+
+msgid "إظهار"
+msgstr "Show"
+
+msgid "إظهار نموذج التسجيل للعامة"
+msgstr "Show Registration Form to Public"
+
+msgid "إظهار نموذج الدخول للعامة"
+msgstr "Show Login Form to Public"
+
+msgid "إعادة إرسال الرمز"
+msgstr "Resend Code"
+
+msgid "إعدادات التسجيل (Registration)"
+msgstr "Registration Settings"
+
+msgid "إعدادات الحساب"
+msgstr "Account Settings"
+
+msgid "إعدادات الحساب التقنية"
+msgstr "Technical Account Settings"
+
+msgid "إعدادات الدخول (Login)"
+msgstr "Login Settings"
+
+msgid "إعدادات الدور والصلاحيات"
+msgstr "Role and Permissions Settings"
+
+msgid "إعدادات النظام"
+msgstr "System Settings"
+
+msgid "إعدادات تطبيق الجوال (PWA)"
+msgstr "Mobile App Settings (PWA)"
+
+msgid "إعدادات خادم الإرسال (SMTP)"
+msgstr "Outgoing Server Settings (SMTP)"
+
+msgid "إغلاق"
+msgstr "Close"
+
+msgid "إغلاق النافذة"
+msgstr "Close Window"
+
+msgid "إكمال التسجيل"
+msgstr "Complete Registration"
+
+msgid "إلزامي"
+msgstr "Required"
+
+msgid "إلغاء"
+msgstr "Cancel"
+
+msgid "إلغاء التقييد"
+msgstr "Unrestrict"
+
+msgid "إلغاء تقييد"
+msgstr "إلغاء تقييد"
+
+msgid "إمكانية الوصول والتباين"
+msgstr "Accessibility and Contrast"
+
+msgid "إنشاء حساب جديد كعضو"
+msgstr "Create new account as a member"
+
+msgid "ابحث بالاسم، الهاتف، أو التخصص..."
+msgstr "Search by name, phone, or specialty..."
+
+msgid "اتركها فارغة إذا كنت لا ترغب في تغييرها."
+msgstr "Leave blank if you do not wish to change it."
+
+msgid "اتركها فارغة في حال التعديل لعدم تغيير كلمة المرور الحالية."
+msgstr "Leave blank if editing and you don't want to change the current password."
+
+msgid "اختر الجنس"
+msgstr "Select Gender"
+
+msgid "اختر الدولة..."
+msgstr "Choose Country..."
+
+msgid "اختر دولة المقر..."
+msgstr "اختر دولة المقر..."
+
+msgid "اختر صورة"
+msgstr "Select Image"
+
+msgid "اختر صورة شخصية"
+msgstr "Select Profile Picture"
+
+msgid "اختر ملف البيانات للرفع"
+msgstr "Choose data file to upload"
+
+msgid "اختيار الملف"
+msgstr "Choose File"
+
+msgid "استخدم الكود القصير أدناه لعرض كافة السياسات المفعله في أي صفحة."
+msgstr "Use the shortcode below to display all enabled policies on any page."
+
+msgid "استخدم محرر HTML لتنسيق الرسائل بشكل احترافي. يمكنك إضافة صور، روابط، وجداول."
+msgstr "Use the HTML editor to format messages professionally. You can add images, links, and tables."
+
+msgid "استعادة (تراجع)"
+msgstr "Restore (Undo)"
+
+msgid "استعادة النظام"
+msgstr "System Restore"
+
+msgid "استعادة كلمة المرور"
+msgstr "Password Recovery"
+
+msgid "استعادة نقطة حفظ (Restore)"
+msgstr "Restore Point"
+
+msgid "استيراد %d مستخدم جديد"
+msgstr "استيراد %d مستخدم جديد"
+
+msgid "استيراد بيانات جديدة"
+msgstr "Import New Data"
+
+msgid "اسم التطبيق الكامل"
+msgstr "Full App Name"
+
+msgid "اسم الحقل"
+msgstr "Field Name"
+
+msgid "اسم الدور (بالعربية)"
+msgstr "Role Name (Arabic)"
+
+msgid "اسم الشركة / المؤسسة"
+msgstr "Company / Institution Name"
+
+msgid "اسم العائلة"
+msgstr "Last Name"
+
+msgid "اسم المرسل الظاهر"
+msgstr "Visible Sender Name"
+
+msgid "اسم المستخدم"
+msgstr "Username"
+
+msgid "اسم المستخدم التجريبي"
+msgstr "اسم المستخدم التجريبي"
+
+msgid "اسم النظام"
+msgstr "System Name"
+
+msgid "افتراضي"
+msgstr "Default"
+
+msgid "الآن"
+msgstr "الآن"
+
+msgid "الأحدث تسجيلاً"
+msgstr "Newest Registered"
+
+msgid "الأدوار والصلاحيات"
+msgstr "Roles and Permissions"
+
+msgid "الأدوار وصلاحيات النظام"
+msgstr "System Roles and Permissions"
+
+msgid "الأزرار والإجراءات"
+msgstr "Buttons and Actions"
+
+msgid "الأقدم تسجيلاً"
+msgstr "Oldest Registered"
+
+msgid "الإجراءات"
+msgstr "Actions"
+
+msgid "الإعدادات"
+msgstr "Settings"
+
+msgid "الاسم"
+msgstr "Name"
+
+msgid "الاسم (أ-ي)"
+msgstr "Name (A-Z)"
+
+msgid "الاسم الأول"
+msgstr "First Name"
+
+msgid "الاسم المختصر"
+msgstr "Short Name"
+
+msgid "البريد الإلكتروني"
+msgstr "Email"
+
+msgid "البريد الإلكتروني المهني"
+msgstr "Professional Email Address"
+
+msgid "البريد الإلكتروني غير صحيح."
+msgstr "البريد الإلكتروني غير صحيح."
+
+msgid "البريد المهني"
+msgstr "Professional Email"
+
+msgid "البيانات الوصفية:"
+msgstr "Metadata:"
+
+msgid "التاريخ والوقت"
+msgstr "Date and Time"
+
+msgid "التاريخ:"
+msgstr "Date:"
+
+msgid "التالي"
+msgstr "Next"
+
+msgid "التخصص الأكاديمي"
+msgstr "Academic Specialty"
+
+msgid "الترتيب"
+msgstr "Order"
+
+msgid "التشفير"
+msgstr "Encryption"
+
+msgid "التفاصيل والسياق"
+msgstr "Details and Context"
+
+msgid "التنبيهات والبريد"
+msgstr "Notifications and Email"
+
+msgid "الجامعة / المؤسسة"
+msgstr "University / Institution"
+
+msgid "الجامعة / المؤسسة المانحة"
+msgstr "University / Awarding Institution"
+
+msgid "الجنس"
+msgstr "Gender"
+
+msgid "الجهاز المفضل"
+msgstr "Preferred Device"
+
+msgid "الجهاز:"
+msgstr "Device:"
+
+msgid "الحالة"
+msgstr "Status"
+
+msgid "الحسابات النشطة"
+msgstr "Active Accounts"
+
+msgid "الحقل (%s) مطلوب."
+msgstr "الحقل (%s) مطلوب."
+
+msgid "الخلفية العامة (Backdrop)"
+msgstr "General Backdrop"
+
+msgid "الدرجة العلمية"
+msgstr "Degree"
+
+msgid "الدور"
+msgstr "Role"
+
+msgid "الدور البديل للمستخدمين:"
+msgstr "Alternative role for users:"
+
+msgid "الدولة"
+msgstr "Country"
+
+msgid "الذاكرة المتاحة:"
+msgstr "Available Memory:"
+
+msgid "الرئيسية"
+msgstr "Home"
+
+msgid "السابق"
+msgstr "Previous"
+
+msgid "السياسات والشروط"
+msgstr "Policies and Terms"
+
+msgid "الشفافية (Opacity)"
+msgstr "Opacity"
+
+msgid "الصلاحيات المختارة:"
+msgstr "Selected permissions:"
+
+msgid "الصورة الشخصية تظهر في التقارير والواجهة."
+msgstr "Profile picture appears in reports and interface."
+
+msgid "العرض"
+msgstr "Width"
+
+msgid "العملية"
+msgstr "Operation"
+
+msgid "العملية:"
+msgstr "Operation:"
+
+msgid "العنوان الرئيسي (Heading)"
+msgstr "Main Heading"
+
+msgid "العنوان بالتفصيل"
+msgstr "Detailed Address"
+
+msgid "العنوان بالتفصيل (للتقارير)"
+msgstr "Detailed Address (for reports)"
+
+msgid "العودة لتسجيل الدخول"
+msgstr "Back to Login"
+
+msgid "الكل"
+msgstr "All"
+
+msgid "الكوادر"
+msgstr "الكوادر"
+
+msgid "اللون الثانوي"
+msgstr "Secondary Color"
+
+msgid "اللون الرئيسي"
+msgstr "Primary Color"
+
+msgid "المؤهل العلمي والتخصص"
+msgstr "Academic Qualification and Specialty"
+
+msgid "المؤهلات الأكاديمية"
+msgstr "Academic Qualifications"
+
+msgid "المتصفح:"
+msgstr "Browser:"
+
+msgid "المتغيرات المتاحة:"
+msgstr "Available Variables:"
+
+msgid "المحتوى التفصيلي (يدعم HTML)"
+msgstr "Detailed Content (Supports HTML)"
+
+msgid "المدربين الرياضيين"
+msgstr "Sports Coaches"
+
+msgid "المرحلة"
+msgstr "Step"
+
+msgid "المسؤول"
+msgstr "Administrator"
+
+msgid "المسؤول:"
+msgstr "Administrator:"
+
+msgid "المستخدمين"
+msgstr "Users"
+
+msgid "المسمى الوظيفي"
+msgstr "Job Title"
+
+msgid "المعلومات الشخصية"
+msgstr "Personal Information"
+
+msgid "المعلومات الشخصية الأساسية"
+msgstr "Basic Personal Information"
+
+msgid "المعلومات المهنية"
+msgstr "Professional Information"
+
+msgid "المعلومات المهنية وجهة العمل"
+msgstr "Professional Information and Employer"
+
+msgid "المنفذ (Port)"
+msgstr "Port"
+
+msgid "الموقع الأخير (IP)"
+msgstr "Last Location (IP)"
+
+msgid "النسخ الاحتياطي"
+msgstr "Backup"
+
+msgid "النص الفرعي (Subtitle)"
+msgstr "Subtitle"
+
+msgid "النظام"
+msgstr "النظام"
+
+msgid "النظام في وضع الصيانة حالياً. الدخول والاشتراك معطلان."
+msgstr "The system is currently in maintenance mode. Login and registration are disabled."
+
+msgid "الهاتف"
+msgstr "Phone"
+
+msgid "الوصف:"
+msgstr "Description:"
+
+msgid "الولاية / المحافظة"
+msgstr "State / Province"
+
+msgid "الولاية/المحافظة"
+msgstr "State/Province"
+
+msgid "بدء التصدير الآن"
+msgstr "Start Export Now"
+
+msgid "بدء النسخ الاحتياطي الآن"
+msgstr "Start Backup Now"
+
+msgid "بدون"
+msgstr "None"
+
+msgid "برجاء التواصل مع إدارة النظام أو الدعم الفني لطلب تفعيل صلاحيات الوصول الخاصة بحسابك."
+msgstr "برجاء التواصل مع إدارة النظام أو الدعم الفني لطلب تفعيل صلاحيات الوصول الخاصة بحسابك."
+
+msgid "برجاء التواصل مع الإدارة إذا كنت بحاجة إلى صلاحيات إضافية للوصول إلى لوحة التحكم."
+msgstr "Please contact management if you need additional permissions to access the dashboard."
+
+msgid "بريد الإرسال الرسمي"
+msgstr "Official Sender Email"
+
+msgid "بريد العمل"
+msgstr "Work Email"
+
+msgid "بكالوريوس"
+msgstr "Bachelor"
+
+msgid "بلد الإقامة"
+msgstr "Country of Residence"
+
+msgid "بيانات التسجيل الأساسية ناقصة."
+msgstr "بيانات التسجيل الأساسية ناقصة."
+
+msgid "بيانات الدخول غير صحيحة."
+msgstr "بيانات الدخول غير صحيحة."
+
+msgid "تأكيد"
+msgstr "Confirm"
+
+msgid "تأكيد الإجراء الحساس"
+msgstr "Confirm Sensitive Action"
+
+msgid "تأكيد الاستيراد النهائي"
+msgstr "Confirm Final Import"
+
+msgid "تأكيد التعديلات"
+msgstr "Confirm Edits"
+
+msgid "تأكيد التقييد"
+msgstr "Confirm Restriction"
+
+msgid "تأكيد الحذف"
+msgstr "Confirm Delete"
+
+msgid "تأكيد الحذف النهائي"
+msgstr "Confirm Final Deletion"
+
+msgid "تأكيد كلمة المرور"
+msgstr "Confirm Password"
+
+msgid "تأكيد وحفظ البيانات"
+msgstr "Confirm and Save Data"
+
+msgid "تأكيد وحفظ نهائي"
+msgstr "Confirm and Final Save"
+
+msgid "تأمين بيانات النظام عبر تصديرها واستعادتها بذكاء لضمان استمرارية العمل المؤسسي."
+msgstr "Secure system data by intelligently exporting and restoring it to ensure institutional business continuity."
+
+msgid "تاريخ الإنشاء"
+msgstr "Creation Date"
+
+msgid "تباين النص المرتفع"
+msgstr "High Text Contrast"
+
+msgid "تباين عالي"
+msgstr "High Contrast"
+
+msgid "تتبع كافة التغييرات والعمليات التي تمت بواسطة مديري النظام."
+msgstr "Track all changes and operations performed by system administrators."
+
+msgid "تثبيت الآن"
+msgstr "Install Now"
+
+msgid "تثبيت النظام كاختصار تطبيق على الشاشة الرئيسية للهواتف الذكية."
+msgstr "Install the system as an app shortcut on smartphone home screens."
+
+msgid "تثبيت تطبيق كنترول على هاتفك للوصول السريع"
+msgstr "تثبيت تطبيق كنترول على هاتفك للوصول السريع"
+
+msgid "تحديث"
+msgstr "Refresh"
+
+msgid "تحديث v2.0.0: ترقية هيكلية النظام وإضافة نظام التنبيهات المتقدم."
+msgstr "Update v2.0.0: Upgrading system architecture and adding an advanced notification system."
+
+msgid "تحديث v2.1.0: تحسين واجهة الدخول والتسجيل بالكامل وإضافة خيارات التخصيص."
+msgstr "Update v2.1.0: Completely improving the login and registration interface and adding customization options."
+
+msgid "تحديث v2.2.0: تفعيل نظام التحقق التلقائي من الإصدار وتحديث قاعدة البيانات."
+msgstr "Update v2.2.0: Enabling the automatic version check system and updating the database."
+
+msgid "تحديث v2.3.0: معالجة الأخطاء الحرجة في واجهة الدخول وضمان استقرار النظام."
+msgstr "Update v2.3.0: Addressing critical login interface errors and ensuring system stability."
+
+msgid "تحديث إعدادات التطبيق"
+msgstr "Update App Settings"
+
+msgid "تحديث الأيقونة"
+msgstr "Update Icon"
+
+msgid "تحديث المعاينة"
+msgstr "Update Preview"
+
+msgid "تحديث الملف الشخصي"
+msgstr "تحديث الملف الشخصي"
+
+msgid "تحديث فوري للنظام"
+msgstr "Immediate System Update"
+
+msgid "تحديث كلمة المرور"
+msgstr "Update Password"
+
+msgid "تحديث كلمة المرور والدخول"
+msgstr "Update Password and Login"
+
+msgid "تحديث ملفات النظام (Clear Cache)"
+msgstr "Update System Files (Clear Cache)"
+
+msgid "تحذير هام:"
+msgstr "Important Warning:"
+
+msgid "تحذير هام: سيتم استبدال كافة البيانات الحالية. هل تريد الاستمرار؟"
+msgstr "Important Warning: All current data will be replaced. Do you want to continue?"
+
+msgid "تحذير: أنت على وشك حذف حسابك الحالي! سيتم تسجيل خروجك فوراً ولن تتمكن من الدخول مجدداً. هل أنت متأكد تماماً؟"
+msgstr "تحذير: أنت على وشك حذف حسابك الحالي! سيتم تسجيل خروجك فوراً ولن تتمكن من الدخول مجدداً. هل أنت متأكد تماماً؟"
+
+msgid "تحرير السياسة"
+msgstr "Edit Policy"
+
+msgid "تحرير السياسة:"
+msgstr "تحرير السياسة:"
+
+msgid "تحرير النصوص القانونية، سياسة الخصوصية، وشروط الخدمة."
+msgstr "Edit legal texts, privacy policy, and terms of service."
+
+msgid "تحقق من الرمز"
+msgstr "Verify Code"
+
+msgid "تحكم في الألوان، الخطوط، والمظهر العام للنظام."
+msgstr "Control colors, fonts, and the overall look of the system."
+
+msgid "تحميل قاعدة بيانات المستخدمين"
+msgstr "Download User Database"
+
+msgid "تخصيص التصميم"
+msgstr "Customize Design"
+
+msgid "تخصيص تصميم النظام"
+msgstr "Customize System Design"
+
+msgid "تخصيص حقول نموذج التسجيل"
+msgstr "Customize Registration Form Fields"
+
+msgid "تخصيص معلومات النظام الأساسية والشعار لتظهر في التقارير والواجهة."
+msgstr "Customize basic system information and logo to appear in reports and interface."
+
+msgid "تخصيص نظام الإشعارات التلقائية وإعدادات خادم الإرسال SMTP."
+msgstr "Customize the automated notification system and SMTP server settings."
+
+msgid "تخصيص واجهة الدخول والتسجيل"
+msgstr "Customize Login and Registration Interface"
+
+msgid "تذكير التفاعل"
+msgstr "Engagement Reminder"
+
+msgid "تراجع"
+msgstr "Go Back"
+
+msgid "تسجيل الدخول للنظام"
+msgstr "Log into System"
+
+msgid "تسجيل جديد"
+msgstr "تسجيل جديد"
+
+msgid "تسجيل دخول"
+msgstr "Login"
+
+msgid "تصدير PDF"
+msgstr "Export PDF"
+
+msgid "تصدير البيانات"
+msgstr "Export Data"
+
+msgid "تصدير الحزمة الآن"
+msgstr "Export Package Now"
+
+msgid "تصدير حزمة شاملة تحتوي على كافة ملفات الكوادر، البريد، النشاطات المرتبطة، والبيانات الوظيفية بتنسيق مهيكل."
+msgstr "Export a comprehensive package containing all staff files, emails, associated activities, and job data in a structured format."
+
+msgid "تصفير النظام"
+msgstr "تصفير النظام"
+
+msgid "تصفير النظام (Data Reset)"
+msgstr "System Data Reset"
+
+msgid "تصفير النظام بالكامل"
+msgstr "Full System Reset"
+
+msgid "تضمين السياسات برمجياً"
+msgstr "Include Policies Programmatically"
+
+msgid "تطبيق الجوال"
+msgstr "Mobile App"
+
+msgid "تعديل"
+msgstr "Edit"
+
+msgid "تعديل الدور"
+msgstr "تعديل الدور"
+
+msgid "تعديل دور"
+msgstr "تعديل دور"
+
+msgid "تعديل سياسة"
+msgstr "تعديل سياسة"
+
+msgid "تعديل كادر"
+msgstr "Edit Staff"
+
+msgid "تعديل كلمة المرور"
+msgstr "Edit Password"
+
+msgid "تعديل ملف الكادر"
+msgstr "Edit Staff Profile"
+
+msgid "تعديل ملفي الشخصي"
+msgstr "Edit My Profile"
+
+msgid "تعيين كلمة مرور جديدة"
+msgstr "Set New Password"
+
+msgid "تغيير الشعار"
+msgstr "Change Logo"
+
+msgid "تغيير الصورة"
+msgstr "Change Picture"
+
+msgid "تغيير حالة حساب"
+msgstr "Change Account Status"
+
+msgid "تغيير كلمة المرور"
+msgstr "Change Password"
+
+msgid "تفاصيل الجهاز الحالي"
+msgstr "Current Device Details"
+
+msgid "تفاصيل الحساب"
+msgstr "Account Details"
+
+msgid "تفاصيل السجل"
+msgstr "Log Details"
+
+msgid "تفاصيل حساب الكادر"
+msgstr "Staff Account Details"
+
+msgid "تفاصيل كاملة"
+msgstr "Full Details"
+
+msgid "تفعيل تسجيل الحسابات الجديدة"
+msgstr "Enable New Account Registration"
+
+msgid "تفعيل تسجيل الدخول عالمياً"
+msgstr "Enable Global Login"
+
+msgid "تفعيل وضع التصفير"
+msgstr "Enable Reset Mode"
+
+msgid "تقييد"
+msgstr "Restrict"
+
+msgid "تقييد جماعي لـ %d كادر"
+msgstr "تقييد جماعي لـ %d كادر"
+
+msgid "تقييد حساب الكادر"
+msgstr "Restrict Staff Account"
+
+msgid "تقييد/تعليق"
+msgstr "Restrict/Suspend"
+
+msgid "تم إرسال %d رسالة بنجاح."
+msgstr "تم إرسال %d رسالة بنجاح."
+
+msgid "تم إرسال رابط الاستعادة للمستخدم بنجاح."
+msgstr "تم إرسال رابط الاستعادة للمستخدم بنجاح."
+
+msgid "تم إرسال رمز التحقق إلى بريدك الإلكتروني المسجل."
+msgstr "تم إرسال رمز التحقق إلى بريدك الإلكتروني المسجل."
+
+msgid "تم إرسال رمز التحقق إلى بريدك الإلكتروني."
+msgstr "تم إرسال رمز التحقق إلى بريدك الإلكتروني."
+
+msgid "تم إنشاء الحساب بنجاح. جاري تسجيل دخولك..."
+msgstr "تم إنشاء الحساب بنجاح. جاري تسجيل دخولك..."
+
+msgid "تم إنشاء النسخة الاحتياطية بنجاح."
+msgstr "Backup created successfully."
+
+msgid "تم استعادة الحساب بنجاح. جاري تسجيل دخولك..."
+msgstr "تم استعادة الحساب بنجاح. جاري تسجيل دخولك..."
+
+msgid "تم استيراد %d مستخدم بنجاح."
+msgstr "تم استيراد %d مستخدم بنجاح."
+
+msgid "تم التحديث بنجاح"
+msgstr "Updated successfully"
+
+msgid "تم التحقق من البريد الإلكتروني بنجاح."
+msgstr "تم التحقق من البريد الإلكتروني بنجاح."
+
+msgid "تم التحقق من الرمز بنجاح. يمكنك الآن تعيين كلمة مرور جديدة."
+msgstr "تم التحقق من الرمز بنجاح. يمكنك الآن تعيين كلمة مرور جديدة."
+
+msgid "تم الحفظ بنجاح"
+msgstr "Saved successfully"
+
+msgid "تم تحديث الملف الشخصي بنجاح."
+msgstr "تم تحديث الملف الشخصي بنجاح."
+
+msgid "تم تحديث كافة السياسات في: %s"
+msgstr "تم تحديث كافة السياسات في: %s"
+
+msgid "تم تسجيل الدخول بنجاح. جاري التحويل..."
+msgstr "تم تسجيل الدخول بنجاح. جاري التحويل..."
+
+msgid "تم تصفير بيانات النظام بنجاح مع الحفاظ على الإعدادات الأساسية."
+msgstr "تم تصفير بيانات النظام بنجاح مع الحفاظ على الإعدادات الأساسية."
+
+msgid "تم تغيير كلمة المرور بنجاح. يمكنك الآن تسجيل الدخول."
+msgstr "تم تغيير كلمة المرور بنجاح. يمكنك الآن تسجيل الدخول."
+
+msgid "تم تقييد %d كادر بنجاح."
+msgstr "تم تقييد %d كادر بنجاح."
+
+msgid "تم حذف %d كادر بنجاح."
+msgstr "تم حذف %d كادر بنجاح."
+
+msgid "تم حفظ الإعدادات بنجاح"
+msgstr "Settings saved successfully"
+
+msgid "تم حفظ البيانات بنجاح"
+msgstr "Data saved successfully"
+
+msgid "تم حفظ السياسة بنجاح"
+msgstr "Policy saved successfully"
+
+msgid "تمت استعادة النظام بنجاح. سيتم إعادة تحميل الصفحة."
+msgstr "System restored successfully. The page will reload."
+
+msgid "تنبيه التقييد"
+msgstr "Restriction Alert"
+
+msgid "تنبيه دخول جديد"
+msgstr "New Login Alert"
+
+msgid "تنسيق الخطوط (Typography)"
+msgstr "Typography"
+
+msgid "تنسيق رقم الهاتف غير صالح لهذه الدولة."
+msgstr "تنسيق رقم الهاتف غير صالح لهذه الدولة."
+
+msgid "تنفيذ الحذف الجماعي"
+msgstr "Execute Bulk Deletion"
+
+msgid "توزع الكوادر البشرية"
+msgstr "Staff Distribution"
+
+msgid "توليد نسخة كاملة (Full Backup)"
+msgstr "Generate Full Backup"
+
+msgid "جاري الإرسال..."
+msgstr "Sending..."
+
+msgid "جاري الاستيراد..."
+msgstr "Importing..."
+
+msgid "جاري التجهيز..."
+msgstr "Preparing..."
+
+msgid "جاري التحديث..."
+msgstr "Updating..."
+
+msgid "جاري التحقق..."
+msgstr "Verifying..."
+
+msgid "جاري التنفيذ..."
+msgstr "جاري التنفيذ..."
+
+msgid "جاري الحذف..."
+msgstr "Deleting..."
+
+msgid "جاري الحفظ..."
+msgstr "Saving..."
+
+msgid "جاري تحميل الرؤى..."
+msgstr "Loading insights..."
+
+msgid "جاري تسجيل الخروج وتأمين الحساب..."
+msgstr "Logging out and securing account..."
+
+msgid "جاري توليد المعاينة..."
+msgstr "Generating preview..."
+
+msgid "جاري توليد النسخة الاحتياطية..."
+msgstr "Generating backup..."
+
+msgid "جاري مسح التخزين المؤقت وتحديث ملفات النظام..."
+msgstr "Clearing cache and updating system files..."
+
+msgid "جاري معالجة طلبك..."
+msgstr "Processing your request..."
+
+msgid "جارٍ تحميل البيانات..."
+msgstr "Loading data..."
+
+msgid "جاهز للاستيراد:"
+msgstr "Ready for import:"
+
+msgid "جميع التخصصات"
+msgstr "All Specialties"
+
+msgid "جميع الحقوق محفوظة"
+msgstr "جميع الحقوق محفوظة"
+
+msgid "جهة العمل الحالية"
+msgstr "Current Employer"
+
+msgid "حالة البيئة (Environment Status):"
+msgstr "Environment Status:"
+
+msgid "حجم الخط الأساسي (px)"
+msgstr "Main Font Size (px)"
+
+msgid "حدث خطأ"
+msgstr "An error occurred"
+
+msgid "حدث خطأ أثناء الإرسال"
+msgstr "An error occurred during sending"
+
+msgid "حدث خطأ أثناء الحفظ"
+msgstr "An error occurred while saving"
+
+msgid "حدث خطأ أثناء حفظ البيانات."
+msgstr "حدث خطأ أثناء حفظ البيانات."
+
+msgid "حذف"
+msgstr "Delete"
+
+msgid "حذف الدور والنظام"
+msgstr "Delete Role and System"
+
+msgid "حذف الدور: %s وإعادة تعيين المستخدمين إلى: %s"
+msgstr "حذف الدور: %s وإعادة تعيين المستخدمين إلى: %s"
+
+msgid "حذف السجل"
+msgstr "Delete Log"
+
+msgid "حذف الكوادر"
+msgstr "حذف الكوادر"
+
+msgid "حذف المستخدم: %s %s"
+msgstr "حذف المستخدم: %s %s"
+
+msgid "حذف جماعي لـ %d كادر"
+msgstr "حذف جماعي لـ %d كادر"
+
+msgid "حذف دور"
+msgstr "حذف دور"
+
+msgid "حذف سياسة"
+msgstr "حذف سياسة"
+
+msgid "حذف شامل لجميع الكوادر (%d حساب)"
+msgstr "حذف شامل لجميع الكوادر (%d حساب)"
+
+msgid "حذف كادر"
+msgstr "Delete Staff"
+
+msgid "حذف كافة الحسابات"
+msgstr "Delete All Accounts"
+
+msgid "حذف نهائي"
+msgstr "Final Delete"
+
+msgid "حزمة بيانات المستخدمين"
+msgstr "User Data Package"
+
+msgid "حساب غير نشط"
+msgstr "Inactive Account"
+
+msgid "حفظ إعدادات التصميم"
+msgstr "Save Design Settings"
+
+msgid "حفظ إعدادات التنبيهات"
+msgstr "Save Notification Settings"
+
+msgid "حفظ التعديلات"
+msgstr "Save Changes"
+
+msgid "حفظ السياسة"
+msgstr "Save Policy"
+
+msgid "حفظ كافة التغييرات"
+msgstr "Save All Changes"
+
+msgid "حفظ وتطبيق الإعدادات"
+msgstr "Save and Apply Settings"
+
+msgid "حقول الإدخال والهوية"
+msgstr "Input Fields and Identity"
+
+msgid "خادم SMTP"
+msgstr "SMTP Server"
+
+msgid "خروج"
+msgstr "Logout"
+
+msgid "خطأ أثناء الحفظ"
+msgstr "Error during saving"
+
+msgid "خطأ في الاستعادة:"
+msgstr "خطأ في الاستعادة:"
+
+msgid "خلفية الحقول"
+msgstr "Field Background"
+
+msgid "دبلوم"
+msgstr "Diploma"
+
+msgid "دكتوراه"
+msgstr "PhD"
+
+msgid "دولة المؤسسة"
+msgstr "دولة المؤسسة"
+
+msgid "دولة المقر الوظيفي"
+msgstr "Job Location Country"
+
+msgid "ذكر"
+msgstr "Male"
+
+msgid "رابط استعادة كلمة المرور"
+msgstr "رابط استعادة كلمة المرور"
+
+msgid "رابط الاستعادة غير صالح أو انتهت صلاحيته."
+msgstr "رابط الاستعادة غير صالح أو انتهت صلاحيته."
+
+msgid "رابط صورة الخلفية"
+msgstr "Background Image URL"
+
+msgid "رسالة الترحيب"
+msgstr "Welcome Message"
+
+msgid "رسالة مخصصة (بدون قالب)"
+msgstr "Custom Message (No Template)"
+
+msgid "رفع شعار جهة العمل"
+msgstr "Upload Employer Logo"
+
+msgid "رفع صورة الهوية"
+msgstr "Upload ID Photo"
+
+msgid "رفع واستعادة ملف نسخة"
+msgstr "Upload and Restore Backup File"
+
+msgid "رقم الهاتف"
+msgstr "Phone Number"
+
+msgid "رقم الهاتف أو البريد الإلكتروني مسجل بالفعل."
+msgstr "رقم الهاتف أو البريد الإلكتروني مسجل بالفعل."
+
+msgid "رقم الهاتف أو البريد الإلكتروني مسجل لمستخدم آخر."
+msgstr "رقم الهاتف أو البريد الإلكتروني مسجل لمستخدم آخر."
+
+msgid "رقم الهاتف غير صالح"
+msgstr "Invalid phone number"
+
+msgid "رقم الهاتف غير مسجل لدينا."
+msgstr "رقم الهاتف غير مسجل لدينا."
+
+msgid "رقم الهاتف للتواصل"
+msgstr "Contact Phone Number"
+
+msgid "رقم هاتف العمل"
+msgstr "Work Phone Number"
+
+msgid "رمز استعادة كلمة المرور"
+msgstr "رمز استعادة كلمة المرور"
+
+msgid "رمز التحقق غير صحيح أو انتهت صلاحيته."
+msgstr "Verification code is incorrect or has expired."
+
+msgid "رمز تحقق البريد"
+msgstr "رمز تحقق البريد"
+
+msgid "سبب التقييد"
+msgstr "Restriction Reason"
+
+msgid "سجل التحديثات الأخير (Update Log):"
+msgstr "Recent Update Log:"
+
+msgid "سجل النشاطات"
+msgstr "Activity Log"
+
+msgid "سجل النشاطات الكامل"
+msgstr "Full Activity Log"
+
+msgid "سجل النشاطات وعمليات النظام"
+msgstr "Activity Log and System Operations"
+
+msgid "سمة البريد (Theme)"
+msgstr "Email Theme"
+
+msgid "سنة التخرج"
+msgstr "Graduation Year"
+
+msgid "سيتم استخدام هذه البيانات كمرسل رسمي لكافة المراسلات الصادرة من النظام لضمان الاحترافية."
+msgstr "This data will be used as the official sender for all outgoing communications from the system to ensure professionalism."
+
+msgid "سيتم تجميع كافة بيانات الكوادر، الإعدادات، سجلات العمليات، والأدوار في ملف JSON مهيكل ومؤرخ للحفظ والاحتفاظ به كمرجع تاريخي."
+msgstr "All staff data, settings, operation logs, and roles will be gathered in a structured and dated JSON file for archival and historical reference."
+
+msgid "سيتم تحديد بيانات الدخول (البريد واسم المستخدم) في الخطوة الخامسة والأخيرة."
+msgstr "Login details (email and username) will be determined in the fifth and final step."
+
+msgid "سيتم رفع التقييد تلقائياً بعد انتهاء هذه المدة."
+msgstr "The restriction will be automatically lifted after this period."
+
+msgid "سيتم مسح كافة الكوادر، سجلات النشاط، والبيانات المدخلة. سيتم الحفاظ على إعدادات النظام، الأدوار، والقوالب فقط لضمان بقاء الهيكل الأساسي."
+msgstr "All staff, activity logs, and entered data will be cleared. System settings, roles, and templates will be kept to ensure the basic structure remains."
+
+msgid "سيتم منع هذا المستخدم من تسجيل الدخول إلى النظام خلال فترة التقييد."
+msgstr "This user will be prevented from logging into the system during the restriction period."
+
+msgid "شاشة مقسمة (Split Screen)"
+msgstr "Split Screen"
+
+msgid "شريط التنقل الجانبي"
+msgstr "Sidebar Navigation"
+
+msgid "شعار الشركة (الرسمي)"
+msgstr "Company Logo (Official)"
+
+msgid "صلاحيات مفعلة"
+msgstr "active permissions"
+
+msgid "صيانة النظام"
+msgstr "صيانة النظام"
+
+msgid "صيانة وتحديث النظام"
+msgstr "System Maintenance and Update"
+
+msgid "ظل الوعاء (Shadow)"
+msgstr "Container Shadow"
+
+msgid "ظهور الشعار"
+msgstr "Logo Visibility"
+
+msgid "ظهور العنوان"
+msgstr "Heading Visibility"
+
+msgid "ظهور النص الفرعي"
+msgstr "Subtitle Visibility"
+
+msgid "عدد المستخدمين بهذا الدور"
+msgstr "Number of users in this role"
+
+msgid "عرض سجل النشاطات"
+msgstr "عرض سجل النشاطات"
+
+msgid "عرض قائمة الكوادر"
+msgstr "عرض قائمة الكوادر"
+
+msgid "عرض لوحة التحكم"
+msgstr "عرض لوحة التحكم"
+
+msgid "عضوية جديدة"
+msgstr "New Membership"
+
+msgid "عمليات حساسة لإدارة البيانات الضخمة وتصفير النظام."
+msgstr "Sensitive operations for large data management and system reset."
+
+msgid "عنوان البريد (Subject)"
+msgstr "Email Subject"
+
+msgid "عنوان الرسالة (Subject)"
+msgstr "Message Subject"
+
+msgid "عنوان السياسة / البند"
+msgstr "Policy / Clause Title"
+
+msgid "عنوان السياسة مطلوب"
+msgstr "عنوان السياسة مطلوب"
+
+msgid "عودة للتعديل"
+msgstr "Back to Edit"
+
+msgid "غير متوفر"
+msgstr "Not Available"
+
+msgid "غير محدد"
+msgstr "Not Specified"
+
+msgid "غير نشط"
+msgstr "غير نشط"
+
+msgid "فشل إرسال البريد الإلكتروني."
+msgstr "فشل إرسال البريد الإلكتروني."
+
+msgid "فشل إرسال البريد الإلكتروني. يرجى التأكد من إعدادات SMTP."
+msgstr "فشل إرسال البريد الإلكتروني. يرجى التأكد من إعدادات SMTP."
+
+msgid "فشل إرسال الرمز:"
+msgstr "فشل إرسال الرمز:"
+
+msgid "فشل إنشاء النسخة الاحتياطية:"
+msgstr "فشل إنشاء النسخة الاحتياطية:"
+
+msgid "فشل دخول"
+msgstr "Failed Login"
+
+msgid "قالب البريد"
+msgstr "Email Template"
+
+msgid "قرار إداري"
+msgstr "Administrative Decision"
+
+msgid "قم بتصدير كافة المستخدمين مع بياناتهم الشخصية، الوظيفية، والأكاديمية."
+msgstr "Export all users with their personal, professional, and academic data."
+
+msgid "قوالب البريد"
+msgstr "Email Templates"
+
+msgid "قيد التحقيق الإداري"
+msgstr "Under Administrative Investigation"
+
+msgid "كادر بشكل نهائي؟"
+msgstr "كادر بشكل نهائي؟"
+
+msgid "كافة الحقوق محفوظة"
+msgstr "All Rights Reserved"
+
+msgid "كامل (100%)"
+msgstr "Full (100%)"
+
+msgid "كل الحالات"
+msgstr "All Statuses"
+
+msgid "كلمة المرور"
+msgstr "Password"
+
+msgid "كلمة المرور (للمدير)"
+msgstr "Password (for Admin)"
+
+msgid "كلمة المرور الجديدة"
+msgstr "New Password"
+
+msgid "كلمة المرور غير متطابقة"
+msgstr "Password mismatch"
+
+msgid "كلمة المرور غير متطابقة."
+msgstr "كلمة المرور غير متطابقة."
+
+msgid "كلمة المرور قصيرة جداً"
+msgstr "كلمة المرور قصيرة جداً"
+
+msgid "كلمة المرور يجب أن لا تقل عن 8 أحرف."
+msgstr "كلمة المرور يجب أن لا تقل عن 8 أحرف."
+
+msgid "كوادر مختارة للعمليات الجماعية"
+msgstr "Selected staff for bulk actions"
+
+msgid "لا توجد بيانات صالحة للاستيراد"
+msgstr "No valid data for import"
+
+msgid "لا توجد صلاحيات مختارة"
+msgstr "No permissions selected"
+
+msgid "لا توجد نشاطات مسجلة حالياً."
+msgstr "No activities recorded currently."
+
+msgid "لا يمكن حذف حساب المدير الرئيسي للنظام."
+msgstr "لا يمكن حذف حساب المدير الرئيسي للنظام."
+
+msgid "لقد أرسلنا رمز تحقق مكون من 6 أرقام إلى بريدك الإلكتروني. يرجى إدخاله للمتابعة."
+msgstr "We have sent a 6-digit verification code to your email. Please enter it to continue."
+
+msgid "لم يتم العثور على أي سياسات حالياً."
+msgstr "No policies found currently."
+
+msgid "لوحة التحكم في المصادقة والتسجيل"
+msgstr "Authentication and Registration Control Panel"
+
+msgid "لوحة المعلومات"
+msgstr "Dashboard"
+
+msgid "لوحة تحكم النظام"
+msgstr "لوحة تحكم النظام"
+
+msgid "لون التحويم (Hover)"
+msgstr "Hover Color"
+
+msgid "لون التركيز (Focus)"
+msgstr "Focus Color"
+
+msgid "لون التسميات (Labels)"
+msgstr "Labels Color"
+
+msgid "لون التمييز"
+msgstr "Accent Color"
+
+msgid "لون الحدود"
+msgstr "Border Color"
+
+msgid "لون الخلفية"
+msgstr "Background Color"
+
+msgid "لون الخلفية العامة"
+msgstr "General Background Color"
+
+msgid "لون السمة الرئيسي"
+msgstr "Primary Theme Color"
+
+msgid "لون النص الأساسي"
+msgstr "Main Text Color"
+
+msgid "لون الوعاء"
+msgstr "Container Color"
+
+msgid "لون حدود الحقول"
+msgstr "Field Border Color"
+
+msgid "لون خلفية الشريط الجانبي"
+msgstr "Sidebar Background Color"
+
+msgid "لون نص الحقول"
+msgstr "Field Text Color"
+
+msgid "ليس لديك الصلاحيات الكافية للوصول إلى لوحة التحكم حالياً."
+msgstr "ليس لديك الصلاحيات الكافية للوصول إلى لوحة التحكم حالياً."
+
+msgid "ليس لديك حساب بعد؟"
+msgstr "Don't have an account yet?"
+
+msgid "مؤلف البريد الإلكتروني"
+msgstr "Email Composer"
+
+msgid "ماجستير"
+msgstr "Master"
+
+msgid "متوافق مع Excel و Google Sheets"
+msgstr "Compatible with Excel and Google Sheets"
+
+msgid "متوافق مع الأنظمة التقنية (API Ready)"
+msgstr "Compatible with technical systems (API Ready)"
+
+msgid "مثلاً: سياسة الخصوصية"
+msgstr "e.g., Privacy Policy"
+
+msgid "محتوى الرسالة (HTML)"
+msgstr "Message Content (HTML)"
+
+msgid "محرر محتوى القالب"
+msgstr "Template Content Editor"
+
+msgid "محرك النسخ الاحتياطي والاستعادة المطور"
+msgstr "Advanced Backup and Restore Engine"
+
+msgid "مخالفة الشروط والأحكام"
+msgstr "Violation of Terms and Conditions"
+
+msgid "مخطط ألوان الواجهة"
+msgstr "Interface Color Scheme"
+
+msgid "مدة التقييد (بالأيام)"
+msgstr "Restriction Duration (Days)"
+
+msgid "مراجعة وحفظ"
+msgstr "Review and Save"
+
+msgid "مرحباً بك في نظام الإدارة"
+msgstr "Welcome to the Management System"
+
+msgid "مرحباً بك في نظام كنترول"
+msgstr "مرحباً بك في نظام كنترول"
+
+msgid "مرحباً بك..."
+msgstr "مرحباً بك..."
+
+msgid "مركز كامل (Centered)"
+msgstr "Fully Centered"
+
+msgid "مسح شامل لكافة البيانات المدخلة والنشاطات مع الحفاظ على هيكلية الجداول، الأدوار الأساسية، وإعدادات الربط."
+msgstr "Comprehensive clearing of all entered data and activities while maintaining table structure, basic roles, and connection settings."
+
+msgid "مصفوفة الصلاحيات"
+msgstr "Permissions Matrix"
+
+msgid "معاينة البيانات وفحص الصحة"
+msgstr "Data Preview and Health Check"
+
+msgid "معاينة حية (Branded Preview)"
+msgstr "Live Branded Preview"
+
+msgid "معطل"
+msgstr "Disabled"
+
+msgid "معلومات الإصدار الحالي"
+msgstr "Current Version Information"
+
+msgid "معلومات الإقامة والعنوان"
+msgstr "Residence and Address Information"
+
+msgid "مفتاح الدور (English Key)"
+msgstr "Role Key (English Key)"
+
+msgid "مفعل"
+msgstr "Enabled"
+
+msgid "مقيد"
+msgstr "Restricted"
+
+msgid "ملف العضو الكادر"
+msgstr "Staff Member Profile"
+
+msgid "ملفي الشخصي"
+msgstr "My Profile"
+
+msgid "منذ %d %s"
+msgstr "منذ %d %s"
+
+msgid "منذ %d أيام"
+msgstr "منذ %d أيام"
+
+msgid "منذ %d دقائق"
+msgstr "منذ %d دقائق"
+
+msgid "منذ %d دقيقة"
+msgstr "منذ %d دقيقة"
+
+msgid "منذ %d ساعات"
+msgstr "منذ %d ساعات"
+
+msgid "منذ %d ساعة"
+msgstr "منذ %d ساعة"
+
+msgid "منذ %d يوم"
+msgstr "منذ %d يوم"
+
+msgid "منذ دقيقة"
+msgstr "منذ دقيقة"
+
+msgid "منذ دقيقتين"
+msgstr "منذ دقيقتين"
+
+msgid "منذ ساعة"
+msgstr "منذ ساعة"
+
+msgid "منذ ساعتين"
+msgstr "منذ ساعتين"
+
+msgid "منذ فترة"
+msgstr "منذ فترة"
+
+msgid "منذ يوم"
+msgstr "منذ يوم"
+
+msgid "منذ يومين"
+msgstr "منذ يومين"
+
+msgid "موجود مسبقاً (سيتم تخطيه):"
+msgstr "Already exists (will be skipped):"
+
+msgid "نسخ"
+msgstr "Copy"
+
+msgid "نسخة PHP:"
+msgstr "PHP Version:"
+
+msgid "نسخة WordPress:"
+msgstr "WordPress Version:"
+
+msgid "نسيت كلمة المرور؟"
+msgstr "Forgot Password?"
+
+msgid "نشط"
+msgstr "Active"
+
+msgid "نصف (50%)"
+msgstr "Half (50%)"
+
+msgid "نصف قطر الحدود"
+msgstr "Border Radius"
+
+msgid "نصيحة:"
+msgstr "Tip:"
+
+msgid "نظام الإدارة المتكامل والأكثر تطوراً"
+msgstr "The integrated and most advanced management system"
+
+msgid "نظام مستقر"
+msgstr "Stable System"
+
+msgid "نعتذر، التسجيل مغلق حالياً بقرار إداري."
+msgstr "نعتذر، التسجيل مغلق حالياً بقرار إداري."
+
+msgid "نعتذر، تسجيل الدخول معطل حالياً لأعمال الصيانة."
+msgstr "نعتذر، تسجيل الدخول معطل حالياً لأعمال الصيانة."
+
+msgid "نعم، احذف الآن"
+msgstr "Yes, delete now"
+
+msgid "نعم، تنفيذ الآن"
+msgstr "Yes, execute now"
+
+msgid "نمط التصميم (Layout)"
+msgstr "Design Layout"
+
+msgid "نوع الحساب (الصلاحية)"
+msgstr "Account Type (Permission)"
+
+msgid "هذا البريد تم إرساله تلقائياً من نظام الإدارة."
+msgstr "هذا البريد تم إرساله تلقائياً من نظام الإدارة."
+
+msgid "هذا الحساب لا يمتلك بريداً إلكترونياً مسجلاً. يرجى التواصل مع الإدارة."
+msgstr "هذا الحساب لا يمتلك بريداً إلكترونياً مسجلاً. يرجى التواصل مع الإدارة."
+
+msgid "هذا الحساب مقيد حالياً. يرجى التواصل مع الإدارة."
+msgstr "هذا الحساب مقيد حالياً. يرجى التواصل مع الإدارة."
+
+msgid "هذا الحقل مطلوب"
+msgstr "This field is required"
+
+msgid "هذا المستخدم لا يمتلك بريداً إلكترونياً مسجلاً."
+msgstr "هذا المستخدم لا يمتلك بريداً إلكترونياً مسجلاً."
+
+msgid "هذا هو الإصدار النشط حالياً. يتم تحميل كافة ملفات التنسيق والبرمجة بناءً على هذا الرقم لضمان التحديث الفوري."
+msgstr "This is the currently active version. All styling and script files are loaded based on this number to ensure immediate updates."
+
+msgid "هذه العملية ستؤدي إلى مسح البيانات الحالية واستبدالها كلياً بمحتويات ملف النسخة المختارة."
+msgstr "This operation will clear current data and completely replace it with the contents of the selected backup file."
+
+msgid "هذه القيمة مسجلة مسبقاً في النظام."
+msgstr "This value is already registered in the system."
+
+msgid "هل أنت متأكد من إرسال رابط استعادة كلمة المرور لهذا المستخدم؟ سيتم إرساله إلى بريده الإلكتروني المسجل."
+msgstr "هل أنت متأكد من إرسال رابط استعادة كلمة المرور لهذا المستخدم؟ سيتم إرساله إلى بريده الإلكتروني المسجل."
+
+msgid "هل أنت متأكد من إلغاء تقييد هذا الحساب؟"
+msgstr "هل أنت متأكد من إلغاء تقييد هذا الحساب؟"
+
+msgid "هل أنت متأكد من حذف"
+msgstr "هل أنت متأكد من حذف"
+
+msgid "هل أنت متأكد من حذف هذا السجل؟"
+msgstr "Are you sure you want to delete this log?"
+
+msgid "هل أنت متأكد من حذف هذا الكادر نهائياً؟ لا يمكن التراجع عن هذه العملية لاحقاً بشكل مباشر."
+msgstr "Are you sure you want to permanently delete this staff member? This action cannot be directly undone."
+
+msgid "هل أنت متأكد من حذف هذه السياسة؟ لا يمكن التراجع عن هذا الإجراء."
+msgstr "Are you sure you want to delete this policy? This action cannot be undone."
+
+msgid "هل أنت متأكد من رغبتك في إرسال هذا البريد الآن؟"
+msgstr "Are you sure you want to send this email now?"
+
+msgid "هوية المرسل"
+msgstr "Sender Identity"
+
+msgid "هوية النظام"
+msgstr "System Identity"
+
+msgid "هوية النظام والشركة"
+msgstr "System and Company Identity"
+
+msgid "هيكل ومحتوى الرسالة (HTML/CSS Editor)"
+msgstr "Message Structure and Content (HTML/CSS Editor)"
+
+msgid "وزن الخط للعناوين"
+msgstr "Font Weight for Headings"
+
+msgid "وصف بسيط..."
+msgstr "وصف بسيط..."
+
+msgid "وضع التصحيح:"
+msgstr "Debug Mode:"
+
+msgid "وعاء النموذج (Form Container)"
+msgstr "Form Container"
+
+msgid "يجب أن تحتوي على 8 أحرف على الأقل."
+msgstr "Must contain at least 8 characters."
+
+msgid "يجب أن تكون الأيقونة مربعة وبحجم لا يقل عن 512 بكسل."
+msgstr "The icon must be square and at least 512 pixels."
+
+msgid "يدعم الملفات بتنسيق CSV أو JSON فقط."
+msgstr "Supports CSV or JSON formats only."
+
+msgid "يرجى إدخال كلمة المرور الجديدة لحسابك."
+msgstr "Please enter the new password for your account."
+
+msgid "يرجى إكمال كافة البيانات."
+msgstr "يرجى إكمال كافة البيانات."
+
+msgid "يرجى اختيار مستخدم واحد على الأقل من القائمة أولاً."
+msgstr "Please select at least one user from the list first."
+
+msgid "يرجى الانتظار دقيقة قبل طلب رمز جديد."
+msgstr "يرجى الانتظار دقيقة قبل طلب رمز جديد."
+
+msgid "يرجى التحقق من الرمز أولاً."
+msgstr "يرجى التحقق من الرمز أولاً."
+
+msgid "يرجى التحقق من بريدك الإلكتروني أولاً."
+msgstr "يرجى التحقق من بريدك الإلكتروني أولاً."
+
+msgid "يرجى كتابة كلمة \"تأكيد\" بشكل صحيح للمتابعة."
+msgstr "يرجى كتابة كلمة \"تأكيد\" بشكل صحيح للمتابعة."
+
+msgid "يفضل خلفية شفافة PNG بجودة عالية."
+msgstr "Prefer high quality transparent background PNG."
+
+msgid "يمكنك استخدام المتغير {user_name} ليتم استبداله باسم المستلم تلقائياً."
+msgstr "You can use the variable {user_name} to be automatically replaced by the recipient's name."

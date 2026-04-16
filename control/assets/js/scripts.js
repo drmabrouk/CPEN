@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
     $(document).on('click', '#control-generate-backup', function() {
         const $btn = $(this);
         const originalText = $btn.text();
-        $btn.prop('disabled', true).text('جاري توليد النسخة الاحتياطية...');
+        $btn.prop('disabled', true).text(control_ajax.strings.backup_generating);
 
         $.post(control_ajax.ajax_url, { action: 'control_create_backup', nonce: control_ajax.nonce }, function(res) {
             if (res.success) {
@@ -21,9 +21,9 @@ jQuery(document).ready(function($) {
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
-                alert('تم إنشاء النسخة الاحتياطية بنجاح.');
+                alert(control_ajax.strings.backup_success);
             } else {
-                alert('فشل إنشاء النسخة الاحتياطية: ' + res.data);
+                alert(control_ajax.strings.backup_failed + res.data);
             }
             $btn.prop('disabled', false).text(originalText);
         });
@@ -38,13 +38,13 @@ jQuery(document).ready(function($) {
             const reader = new FileReader();
             reader.onload = event => {
                 const backupData = event.target.result;
-                if (confirm('تحذير هام: سيتم استبدال كافة البيانات الحالية. هل تريد الاستمرار؟')) {
+                if (confirm(control_ajax.strings.restore_warning)) {
                     $.post(control_ajax.ajax_url, { action: 'control_restore_backup', backup_data: backupData, nonce: control_ajax.nonce }, function(res) {
                         if (res.success) {
-                            alert('تمت استعادة النظام بنجاح. سيتم إعادة تحميل الصفحة.');
+                            alert(control_ajax.strings.restore_success);
                             location.reload();
                         } else {
-                            alert('خطأ في الاستعادة: ' + res.data);
+                            alert(control_ajax.strings.restore_error + res.data);
                         }
                     });
                 }
@@ -137,7 +137,7 @@ jQuery(document).ready(function($) {
                 startOTPTimer();
                 $('.otp-digit').first().focus();
             } else {
-                $('#reg-error').html('<span class="dashicons dashicons-warning"></span> ' + res.data.message).addClass('error').fadeIn();
+                $('#reg-error').html('<span class="dashicons dashicons-warning"></span> ' + (res.data.message || control_ajax.strings.otp_sent_error)).addClass('error').fadeIn();
             }
         });
     }
@@ -201,7 +201,7 @@ jQuery(document).ready(function($) {
                 if (!res.success) {
                     $el.css('border-color', '#ef4444');
                     if (!$container.find('.unique-error').length) {
-                        $container.append(`<div class="unique-error" style="color:#ef4444; font-size:0.7rem; margin-top:4px; font-weight:700;">${res.data.message}</div>`);
+                        $container.append(`<div class="unique-error" style="color:#ef4444; font-size:0.7rem; margin-top:4px; font-weight:700;">${res.data.message || control_ajax.strings.unique_error}</div>`);
                     }
                 } else {
                     $el.css('border-color', '');
@@ -288,7 +288,7 @@ jQuery(document).ready(function($) {
             if (!val || (val && val.trim() === '')) {
                 $container.find('input, select, textarea, .integrated-phone-field').css('border-color', errorColor);
                 if (!$container.find('.error-msg').length) {
-                    $container.append(`<div class="error-msg" style="color:${errorColor}; font-size:0.7rem; margin-top:4px; font-weight:700;">هذا الحقل مطلوب</div>`);
+                    $container.append(`<div class="error-msg" style="color:${errorColor}; font-size:0.7rem; margin-top:4px; font-weight:700;">${control_ajax.strings.field_required}</div>`);
                 }
                 valid = false;
             } else {
@@ -300,7 +300,7 @@ jQuery(document).ready(function($) {
                     if (val.length < 7) {
                         $container.find('.integrated-phone-field').css('border-color', errorColor);
                         if (!$container.find('.error-msg').length) {
-                            $container.append(`<div class="error-msg" style="color:${errorColor}; font-size:0.7rem; margin-top:4px; font-weight:700;">رقم الهاتف غير صالح</div>`);
+                            $container.append(`<div class="error-msg" style="color:${errorColor}; font-size:0.7rem; margin-top:4px; font-weight:700;">${control_ajax.strings.phone_invalid}</div>`);
                         }
                         valid = false;
                     }
@@ -312,7 +312,7 @@ jQuery(document).ready(function($) {
                     if (val !== pass) {
                         $field.css('border-color', errorColor);
                         if (!$container.find('.error-msg').length) {
-                            $container.append(`<div class="error-msg" style="color:${errorColor}; font-size:0.7rem; margin-top:4px; font-weight:700;">كلمة المرور غير متطابقة</div>`);
+                            $container.append(`<div class="error-msg" style="color:${errorColor}; font-size:0.7rem; margin-top:4px; font-weight:700;">${control_ajax.strings.pass_mismatch}</div>`);
                         }
                         valid = false;
                     }
@@ -330,7 +330,7 @@ jQuery(document).ready(function($) {
         const phoneFull = $('#login-country-code').val() + $('#login-phone-body').val();
         $('#login-phone-full').val(phoneFull);
 
-        $btn.prop('disabled', true).html('<span class="dashicons dashicons-update spin"></span> جاري التحقق...');
+        $btn.prop('disabled', true).html('<span class="dashicons dashicons-update spin"></span> ' + control_ajax.strings.logging_in);
         $('#login-error').hide().removeClass('error success');
 
         $.post(control_ajax.ajax_url, $(this).serialize() + '&action=control_login&nonce=' + control_ajax.nonce, function(res) {
@@ -338,8 +338,8 @@ jQuery(document).ready(function($) {
                 $('#login-error').html('<span class="dashicons dashicons-yes"></span> ' + res.data).addClass('success').fadeIn();
                 setTimeout(() => window.location.reload(), 1000);
             } else {
-                $btn.prop('disabled', false).text('تسجيل الدخول للنظام');
-                $('#login-error').html('<span class="dashicons dashicons-warning"></span> ' + (res.data.message || 'بيانات الدخول غير صحيحة')).addClass('error').fadeIn();
+                $btn.prop('disabled', false).text(control_ajax.strings.login_btn);
+                $('#login-error').html('<span class="dashicons dashicons-warning"></span> ' + (res.data.message || control_ajax.strings.login_error)).addClass('error').fadeIn();
             }
         });
     });
@@ -350,11 +350,11 @@ jQuery(document).ready(function($) {
         const phoneFull = $('#reg-country-code').val() + $('#reg-phone-body').val();
 
         if ($('#reg-password').val().length < 8) {
-            $('#reg-error').html('<span class="dashicons dashicons-warning"></span> كلمة المرور يجب أن لا تقل عن 8 أحرف').addClass('error').fadeIn();
+            $('#reg-error').html('<span class="dashicons dashicons-warning"></span> ' + control_ajax.strings.pass_short).addClass('error').fadeIn();
             return;
         }
 
-        $btn.prop('disabled', true).html('<span class="dashicons dashicons-update spin"></span> جاري معالجة طلبك...');
+        $btn.prop('disabled', true).html('<span class="dashicons dashicons-update spin"></span> ' + control_ajax.strings.processing);
         $('#reg-error').hide().removeClass('error success');
 
         const formData = $(this).serializeArray();
@@ -364,11 +364,11 @@ jQuery(document).ready(function($) {
 
         $.post(control_ajax.ajax_url, formData, function(res) {
             if (res.success) {
-                $('#reg-error').html('<span class="dashicons dashicons-yes"></span> ' + 'تم التسجيل بنجاح! جاري تحويلك...').addClass('success').fadeIn();
+                $('#reg-error').html('<span class="dashicons dashicons-yes"></span> ' + res.data).addClass('success').fadeIn();
                 setTimeout(() => window.location.reload(), 1500);
             } else {
-                $btn.prop('disabled', false).text('إتمام التسجيل');
-                $('#reg-error').html('<span class="dashicons dashicons-warning"></span> ' + (res.data.message || 'حدث خطأ أثناء التسجيل')).addClass('error').fadeIn();
+                $btn.prop('disabled', false).text(control_ajax.strings.reg_complete_btn);
+                $('#reg-error').html('<span class="dashicons dashicons-warning"></span> ' + (res.data.message || control_ajax.strings.reg_error)).addClass('error').fadeIn();
             }
         });
     });
@@ -380,11 +380,11 @@ jQuery(document).ready(function($) {
         const confirm = $('#reset-confirm-password').val();
 
         if (pass !== confirm) {
-            $('#reset-feedback').html('<span class="dashicons dashicons-warning"></span> كلمة المرور غير متطابقة').addClass('error').fadeIn();
+            $('#reset-feedback').html('<span class="dashicons dashicons-warning"></span> ' + control_ajax.strings.pass_mismatch).addClass('error').fadeIn();
             return;
         }
 
-        $btn.prop('disabled', true).html('<span class="dashicons dashicons-update spin"></span> جاري التحديث...');
+        $btn.prop('disabled', true).html('<span class="dashicons dashicons-update spin"></span> ' + control_ajax.strings.updating);
         $('#reset-feedback').hide().removeClass('error success');
 
         $.post(control_ajax.ajax_url, $(this).serialize() + '&action=control_process_password_reset&nonce=' + control_ajax.nonce, function(res) {
@@ -392,8 +392,8 @@ jQuery(document).ready(function($) {
                 $('#reset-feedback').html('<span class="dashicons dashicons-yes"></span> ' + res.data).addClass('success').fadeIn();
                 setTimeout(() => window.location.href = control_ajax.home_url, 2000);
             } else {
-                $btn.prop('disabled', false).text('تحديث كلمة المرور');
-                $('#reset-feedback').html('<span class="dashicons dashicons-warning"></span> ' + (res.data.message || 'حدث خطأ')).addClass('error').fadeIn();
+                $btn.prop('disabled', false).text(control_ajax.strings.update_pass_btn);
+                $('#reset-feedback').html('<span class="dashicons dashicons-warning"></span> ' + (res.data.message || control_ajax.strings.general_error)).addClass('error').fadeIn();
             }
         });
     });
@@ -404,7 +404,7 @@ jQuery(document).ready(function($) {
         const $btn = $(this).find('button[type="submit"]');
         const phoneFull = $('#forgot-country-code').val() + $('#forgot-phone-body').val();
 
-        $btn.prop('disabled', true).html('<span class="dashicons dashicons-update spin"></span> جاري الإرسال...');
+        $btn.prop('disabled', true).html('<span class="dashicons dashicons-update spin"></span> ' + control_ajax.strings.sending);
         $('#forgot-feedback').hide().removeClass('error success');
 
         $.post(control_ajax.ajax_url, {
@@ -412,7 +412,7 @@ jQuery(document).ready(function($) {
             phone: phoneFull,
             nonce: control_ajax.nonce
         }, function(res) {
-            $btn.prop('disabled', false).text('إرسال رمز التحقق');
+            $btn.prop('disabled', false).text(control_ajax.strings.send_otp_btn);
             if (res.success) {
                 recoveryEmail = res.data.email;
                 $('#forgot-step-1').hide();
@@ -420,7 +420,7 @@ jQuery(document).ready(function($) {
                 $('#forgot-feedback').html('<span class="dashicons dashicons-yes"></span> ' + res.data.message).addClass('success').fadeIn();
                 $('.recovery-otp').first().focus();
             } else {
-                $('#forgot-feedback').html('<span class="dashicons dashicons-warning"></span> ' + (res.data.message || 'حدث خطأ')).addClass('error').fadeIn();
+                $('#forgot-feedback').html('<span class="dashicons dashicons-warning"></span> ' + (res.data.message || control_ajax.strings.general_error)).addClass('error').fadeIn();
             }
         });
     });
@@ -432,7 +432,7 @@ jQuery(document).ready(function($) {
         if (otp.length < 6) return;
 
         const $btn = $(this);
-        $btn.prop('disabled', true).html('<span class="dashicons dashicons-update spin"></span> جاري التحقق...');
+        $btn.prop('disabled', true).html('<span class="dashicons dashicons-update spin"></span> ' + control_ajax.strings.verifying);
         $('#forgot-feedback').hide().removeClass('error success');
 
         $.post(control_ajax.ajax_url, {
@@ -447,8 +447,8 @@ jQuery(document).ready(function($) {
                 $('#forgot-feedback').html('<span class="dashicons dashicons-yes"></span> ' + res.data).addClass('success').fadeIn();
                 updateFloatingLabels();
             } else {
-                $btn.prop('disabled', false).text('تحقق من الرمز');
-                $('#forgot-feedback').html('<span class="dashicons dashicons-warning"></span> ' + res.data.message).addClass('error').fadeIn();
+                $btn.prop('disabled', false).text(control_ajax.strings.verify_otp_btn);
+                $('#forgot-feedback').html('<span class="dashicons dashicons-warning"></span> ' + (res.data.message || control_ajax.strings.otp_error)).addClass('error').fadeIn();
                 $('.recovery-otp').val('').first().focus();
             }
         });
@@ -459,17 +459,17 @@ jQuery(document).ready(function($) {
         const confirm = $('#recovery-confirm-password').val();
 
         if (pass.length < 8) {
-            $('#forgot-feedback').html('<span class="dashicons dashicons-warning"></span> كلمة المرور قصيرة جداً').addClass('error').fadeIn();
+            $('#forgot-feedback').html('<span class="dashicons dashicons-warning"></span> ' + control_ajax.strings.pass_short).addClass('error').fadeIn();
             return;
         }
 
         if (pass !== confirm) {
-            $('#forgot-feedback').html('<span class="dashicons dashicons-warning"></span> كلمة المرور غير متطابقة').addClass('error').fadeIn();
+            $('#forgot-feedback').html('<span class="dashicons dashicons-warning"></span> ' + control_ajax.strings.pass_mismatch).addClass('error').fadeIn();
             return;
         }
 
         const $btn = $(this);
-        $btn.prop('disabled', true).html('<span class="dashicons dashicons-update spin"></span> جاري الحفظ...');
+        $btn.prop('disabled', true).html('<span class="dashicons dashicons-update spin"></span> ' + control_ajax.strings.saving);
 
         $.post(control_ajax.ajax_url, {
             action: 'control_reset_password_recovery',
@@ -481,8 +481,8 @@ jQuery(document).ready(function($) {
                 $('#forgot-feedback').html('<span class="dashicons dashicons-yes"></span> ' + res.data).addClass('success').fadeIn();
                 setTimeout(() => window.location.reload(), 1500);
             } else {
-                $btn.prop('disabled', false).text('تحديث كلمة المرور والدخول');
-                $('#forgot-feedback').html('<span class="dashicons dashicons-warning"></span> ' + res.data.message).addClass('error').fadeIn();
+                $btn.prop('disabled', false).text(control_ajax.strings.update_and_login);
+                $('#forgot-feedback').html('<span class="dashicons dashicons-warning"></span> ' + (res.data.message || control_ajax.strings.general_error)).addClass('error').fadeIn();
             }
         });
     });
@@ -547,14 +547,14 @@ jQuery(document).ready(function($) {
         e.preventDefault();
         const $btn = $(this).find('button[type="submit"]');
         const originalHtml = $btn.html();
-        $btn.prop('disabled', true).html('<span class="dashicons dashicons-update spin"></span> جاري الحفظ...');
+        $btn.prop('disabled', true).html('<span class="dashicons dashicons-update spin"></span> ' + control_ajax.strings.saving);
 
         $.post(control_ajax.ajax_url, $(this).serialize() + '&action=control_save_settings&nonce=' + control_ajax.nonce, function(res) {
             if (res.success) {
-                alert('تم حفظ الإعدادات بنجاح');
+                alert(control_ajax.strings.settings_saved);
                 location.reload();
             } else {
-                alert('خطأ أثناء الحفظ');
+                alert(control_ajax.strings.settings_error);
                 $btn.prop('disabled', false).html(originalHtml);
             }
         });
@@ -563,14 +563,14 @@ jQuery(document).ready(function($) {
     // --- Other Shared Utilities ---
 
     const syncLoader = $('#control-sync-loader');
-    function showSync(text = 'جارٍ تحميل البيانات...') { syncLoader.find('.loader-text').text(text); syncLoader.fadeIn(200); }
-    function hideSync() { syncLoader.find('.loader-text').text('تم التحديث بنجاح'); setTimeout(() => syncLoader.fadeOut(400), 1000); }
+    function showSync(text = control_ajax.strings.sync_default) { syncLoader.find('.loader-text').text(text); syncLoader.fadeIn(200); }
+    function hideSync() { syncLoader.find('.loader-text').text(control_ajax.strings.sync_success); setTimeout(() => syncLoader.fadeOut(400), 1000); }
 
     $(document).ajaxStart(function() { showSync(); });
     $(document).ajaxStop(function() { hideSync(); });
 
     $(document).on('click', '#control-refresh-btn, #control-mobile-refresh-btn', function() {
-        showSync('جاري مسح التخزين المؤقت وتحديث ملفات النظام...');
+        showSync(control_ajax.strings.hard_refresh);
 
         // Clear Application State
         localStorage.clear();
@@ -594,7 +594,7 @@ jQuery(document).ready(function($) {
 
     $(document).on('click', '#control-logout-btn, #control-mobile-logout-btn, #control-header-logout', function(e) {
         e.preventDefault();
-        showSync('جاري تسجيل الخروج وتأمين الحساب...');
+        showSync(control_ajax.strings.logout_sync);
 
         // Clear Client Storage immediately
         localStorage.clear();
@@ -615,7 +615,7 @@ jQuery(document).ready(function($) {
     $(document).on('click', '.control-upload-btn', function(e) {
         e.preventDefault();
         const btn = $(this);
-        const frame = wp.media({ title: 'اختر صورة', multiple: false }).open();
+        const frame = wp.media({ title: control_ajax.strings.select_image, multiple: false }).open();
         frame.on('select', function() {
             const attachment = frame.state().get('selection').first().toJSON();
             const target = btn.parent().find('input[type="hidden"]');
@@ -675,7 +675,7 @@ jQuery(document).ready(function($) {
     });
 
     $(document).on('click', '.delete-log-entry', function() {
-        if(!confirm('هل أنت متأكد من حذف هذا السجل؟')) return;
+        if(!confirm(control_ajax.strings.delete_confirm)) return;
         const id = $(this).data('id');
         $.post(control_ajax.ajax_url, { action: 'control_delete_activity', log_id: id, nonce: control_ajax.nonce }, () => location.reload());
     });
@@ -683,22 +683,22 @@ jQuery(document).ready(function($) {
     $(document).on('click', '.view-log-info', function() {
         const log = $(this).data('log');
         let details = `
-            <div style="text-align:right; direction:rtl; font-family:Rubik, sans-serif;">
-                <p><strong>المسؤول:</strong> ${log.user_id}</p>
-                <p><strong>العملية:</strong> ${log.action_type}</p>
-                <p><strong>الوصف:</strong> ${log.description}</p>
-                <p><strong>الجهاز:</strong> ${log.device_type}</p>
-                <p><strong>المتصفح:</strong> ${log.device_info}</p>
+            <div style="text-align:start; direction:inherit; font-family:Rubik, sans-serif;">
+                <p><strong>${control_ajax.strings.admin_label}</strong> ${log.user_id}</p>
+                <p><strong>${control_ajax.strings.action_label}</strong> ${log.action_type}</p>
+                <p><strong>${control_ajax.strings.desc_label}</strong> ${log.description}</p>
+                <p><strong>${control_ajax.strings.device_label}</strong> ${log.device_type}</p>
+                <p><strong>${control_ajax.strings.browser_label}</strong> ${log.device_info}</p>
                 <p><strong>IP:</strong> ${log.ip_address}</p>
-                <p><strong>التاريخ:</strong> ${log.action_date}</p>
-                <p><strong>البيانات الوصفية:</strong></p>
+                <p><strong>${control_ajax.strings.date_label}</strong> ${log.action_date}</p>
+                <p><strong>${control_ajax.strings.meta_label}</strong></p>
                 <pre style="background:#f1f5f9; padding:10px; border-radius:8px; font-size:0.7rem; overflow-x:auto;">${JSON.stringify(JSON.parse(log.meta_data || '{}'), null, 2)}</pre>
             </div>
         `;
 
         // Simple overlay for log details
         const overlay = $('<div style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:100000; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(4px);"></div>');
-        const modal = $('<div class="control-card" style="width:90%; max-width:600px; padding:30px;"><h3>تفاصيل السجل</h3>' + details + '<button class="control-btn" style="width:100%; margin-top:20px;">إغلاق</button></div>');
+        const modal = $('<div class="control-card" style="width:90%; max-width:600px; padding:30px;"><h3>' + control_ajax.strings.log_details_title + '</h3>' + details + '<button class="control-btn" style="width:100%; margin-top:20px;">' + control_ajax.strings.close + '</button></div>');
 
         overlay.append(modal);
         $('body').append(overlay);
@@ -717,7 +717,12 @@ jQuery(document).ready(function($) {
         $('#self-wizard-prev').toggle(step > 1);
         $('#self-wizard-next').toggle(step < 4);
         $('#self-wizard-submit').toggle(step === 4);
-        const labels = { 1: 'المعلومات الشخصية', 2: 'المؤهلات الأكاديمية', 3: 'المعلومات المهنية', 4: 'إعدادات الحساب' };
+        const labels = {
+            1: control_ajax.strings.personal_info,
+            2: control_ajax.strings.academic_info,
+            3: control_ajax.strings.professional_info,
+            4: control_ajax.strings.account_settings
+        };
         $('#self-wizard-step-label').text(labels[step]);
         selfCurrentStep = step;
     }
@@ -736,7 +741,7 @@ jQuery(document).ready(function($) {
 
     $('#upload-self-image, #self-profile-preview').on('click', function(e) {
         e.preventDefault();
-        const frame = wp.media({ title: 'اختر صورة شخصية', multiple: false }).open();
+        const frame = wp.media({ title: control_ajax.strings.select_profile_img, multiple: false }).open();
         frame.on('select', function() {
             const attachment = frame.state().get('selection').first().toJSON();
             $('#self-image-url').val(attachment.url);
@@ -747,7 +752,7 @@ jQuery(document).ready(function($) {
     $('#self-profile-form').on('submit', function(e) {
         e.preventDefault();
         const $btn = $(this).find('button[type="submit"]');
-        $btn.prop('disabled', true).text('جاري الحفظ...');
+        $btn.prop('disabled', true).text(control_ajax.strings.saving);
 
         const formData = $(this).serialize() + '&action=control_update_profile&nonce=' + control_ajax.nonce;
         $.post(control_ajax.ajax_url, formData, function(res) {
@@ -755,8 +760,8 @@ jQuery(document).ready(function($) {
                 alert(res.data);
                 location.reload();
             } else {
-                alert(res.data || 'حدث خطأ');
-                $btn.prop('disabled', false).text('حفظ التعديلات');
+                alert(res.data || control_ajax.strings.general_error);
+                $btn.prop('disabled', false).text(control_ajax.strings.save_changes);
             }
         });
     });
@@ -768,7 +773,7 @@ jQuery(document).ready(function($) {
         const $btn = $form.find('button[type="submit"]');
         const originalText = $btn.text();
 
-        $btn.prop('disabled', true).html('<span class="dashicons dashicons-update spin"></span> جاري الحفظ...');
+        $btn.prop('disabled', true).html('<span class="dashicons dashicons-update spin"></span> ' + control_ajax.strings.saving);
 
         // Manual collection of checkboxes to handle '0' values for unchecked states
         let checkboxes = {};
@@ -807,10 +812,10 @@ jQuery(document).ready(function($) {
 
         $.post(control_ajax.ajax_url, formData, function(res) {
             if (res.success) {
-                $btn.html('<span class="dashicons dashicons-yes"></span> تم الحفظ بنجاح');
+                $btn.html('<span class="dashicons dashicons-yes"></span> ' + control_ajax.strings.save_success);
                 setTimeout(() => location.reload(), 1000);
             } else {
-                alert(res.data.message || 'حدث خطأ أثناء الحفظ');
+                alert(res.data.message || control_ajax.strings.settings_error);
                 $btn.prop('disabled', false).text(originalText);
             }
         });
@@ -834,7 +839,7 @@ jQuery(document).ready(function($) {
 
     $('#export-user-package-btn').on('click', function() {
         const $btn = $(this);
-        $btn.prop('disabled', true).text('جاري التجهيز...');
+        $btn.prop('disabled', true).text(control_ajax.strings.preparing);
 
         $.post(control_ajax.ajax_url, { action: 'control_export_user_package', nonce: control_ajax.nonce }, function(res) {
             if (res.success) {
@@ -848,22 +853,22 @@ jQuery(document).ready(function($) {
             } else {
                 alert(res.data);
             }
-            $btn.prop('disabled', false).text('تصدير الحزمة الآن');
+            $btn.prop('disabled', false).text(control_ajax.strings.export_pkg_btn);
         });
     });
 
     $('#bulk-delete-all-btn').on('click', function() {
         currentDestructiveAction = 'bulk_delete_all_users';
-        $('#destructive-modal-title').text('حذف كافة الحسابات');
-        $('#destructive-modal-desc').text('أنت على وشك حذف كافة الكوادر البشرية المسجلة. لن يتم حذف حسابك الحالي. هذا الإجراء نهائي ولا يمكن التراجع عنه.');
+        $('#destructive-modal-title').text(control_ajax.strings.bulk_del_title);
+        $('#destructive-modal-desc').text(control_ajax.strings.bulk_del_desc);
         $('#reset-word-verification').hide();
         $('#control-destructive-modal').css('display', 'flex');
     });
 
     $('#system-reset-btn').on('click', function() {
         currentDestructiveAction = 'system_data_reset';
-        $('#destructive-modal-title').text('تصفير النظام بالكامل');
-        $('#destructive-modal-desc').text('سيتم مسح كافة الكوادر، سجلات النشاط، والبيانات المدخلة. سيتم الحفاظ على إعدادات النظام، الأدوار، والقوالب فقط لضمان بقاء الهيكل الأساسي.');
+        $('#destructive-modal-title').text(control_ajax.strings.sys_reset_title);
+        $('#destructive-modal-desc').text(control_ajax.strings.sys_reset_desc);
         $('#reset-word-verification').show();
         $('#destructive-verify-word').val('');
         $('#control-destructive-modal').css('display', 'flex');
@@ -871,14 +876,14 @@ jQuery(document).ready(function($) {
 
     $('#confirm-destructive-btn').on('click', function() {
         if (currentDestructiveAction === 'system_data_reset') {
-            if ($('#destructive-verify-word').val() !== 'تأكيد') {
-                alert('يرجى كتابة كلمة "تأكيد" بشكل صحيح للمتابعة.');
+            if ($('#destructive-verify-word').val() !== control_ajax.strings.confirmation_word) {
+                alert(control_ajax.strings.confirm_prompt);
                 return;
             }
         }
 
         const $btn = $(this);
-        $btn.prop('disabled', true).text('جاري التنفيذ...');
+        $btn.prop('disabled', true).text(control_ajax.strings.processing);
 
         $.post(control_ajax.ajax_url, { action: 'control_' + currentDestructiveAction, nonce: control_ajax.nonce }, function(res) {
             if (res.success) {
@@ -886,7 +891,7 @@ jQuery(document).ready(function($) {
                 location.reload();
             } else {
                 alert(res.data);
-                $btn.prop('disabled', false).text('نعم، تنفيذ الآن');
+                $btn.prop('disabled', false).text(control_ajax.strings.confirm_execute);
             }
         });
     });
@@ -894,7 +899,7 @@ jQuery(document).ready(function($) {
     // --- Policies & Terms Management ---
 
     $(document).on('click', '#add-new-policy-btn', function() {
-        $('#policy-modal-title').text('إضافة سياسة جديدة');
+        $('#policy-modal-title').text(control_ajax.strings.add_policy_title);
         $('#control-policy-form')[0].reset();
         $('#policy-id').val('0');
         $('#control-policy-modal').css('display', 'flex');
@@ -902,7 +907,7 @@ jQuery(document).ready(function($) {
 
     $(document).on('click', '.edit-policy-btn', function() {
         const policy = $(this).data('policy');
-        $('#policy-modal-title').text('تحرير السياسة: ' + policy.title);
+        $('#policy-modal-title').text(control_ajax.strings.edit_policy_title + policy.title);
         $('#policy-id').val(policy.id);
         $('#policy-title').val(policy.title);
         $('#policy-content').val(policy.content);
@@ -910,7 +915,7 @@ jQuery(document).ready(function($) {
     });
 
     $(document).on('click', '.delete-policy-btn', function() {
-        if (!confirm('هل أنت متأكد من حذف هذه السياسة؟ لا يمكن التراجع عن هذا الإجراء.')) return;
+        if (!confirm(control_ajax.strings.policy_delete)) return;
         const id = $(this).data('id');
         $.post(control_ajax.ajax_url, { action: 'control_delete_policy', id: id, nonce: control_ajax.nonce }, function(res) {
             if (res.success) location.reload();
@@ -921,15 +926,15 @@ jQuery(document).ready(function($) {
     $('#control-policy-form').on('submit', function(e) {
         e.preventDefault();
         const $btn = $(this).find('button[type="submit"]');
-        $btn.prop('disabled', true).text('جاري الحفظ...');
+        $btn.prop('disabled', true).text(control_ajax.strings.saving);
 
         $.post(control_ajax.ajax_url, $(this).serialize() + '&action=control_save_policy&nonce=' + control_ajax.nonce, function(res) {
             if (res.success) {
-                alert('تم حفظ السياسة بنجاح');
+                alert(control_ajax.strings.policy_saved);
                 location.reload();
             } else {
-                alert(res.data || 'حدث خطأ أثناء الحفظ');
-                $btn.prop('disabled', false).text('حفظ السياسة');
+                alert(res.data || control_ajax.strings.general_error);
+                $btn.prop('disabled', false).text(control_ajax.strings.save_policy);
             }
         });
     });
@@ -942,7 +947,7 @@ jQuery(document).ready(function($) {
     $(document).on('click', '#control-send-email-blast-btn', function() {
         const selected = $('.user-bulk-select:checked').map((_, el) => el.value).get();
         if (selected.length === 0) {
-            alert('يرجى اختيار مستخدم واحد على الأقل من القائمة أولاً.');
+            alert(control_ajax.strings.select_user_first);
             return;
         }
         openEmailComposer(selected);
@@ -954,7 +959,7 @@ jQuery(document).ready(function($) {
         const $modal = $('#control-email-composer-modal');
         const $templateSelect = $('#email-template-select');
 
-        $('#email-target-display').text(count === 1 ? 'إرسال بريد لمستخدم واحد' : `إرسال بريد لـ ${count} مستخدم مختار`);
+        $('#email-target-display').text(count === 1 ? control_ajax.strings.email_count_one : control_ajax.strings.email_count_many.replace('%d', count));
 
         // Fetch templates
         $.post(control_ajax.ajax_url, { action: 'control_get_email_templates', nonce: control_ajax.nonce }, function(res) {
@@ -997,7 +1002,7 @@ jQuery(document).ready(function($) {
         if (!content) return;
 
         $('#email-preview-container').show();
-        $('#email-preview-frame').html('<p style="text-align:center;">جاري توليد المعاينة...</p>');
+        $('#email-preview-frame').html('<p style="text-align:center;">' + control_ajax.strings.preparing_preview + '</p>');
 
         $.post(control_ajax.ajax_url, {
             action: 'control_preview_email',
@@ -1012,11 +1017,11 @@ jQuery(document).ready(function($) {
 
     $(document).on('submit', '#control-email-composer-form', function(e) {
         e.preventDefault();
-        if (!confirm('هل أنت متأكد من رغبتك في إرسال هذا البريد الآن؟')) return;
+        if (!confirm(control_ajax.strings.confirm_send_mail)) return;
 
         const $btn = $('#send-email-final-btn');
         const originalText = $btn.text();
-        $btn.prop('disabled', true).text('جاري الإرسال...');
+        $btn.prop('disabled', true).text(control_ajax.strings.sending_mail);
 
         $.post(control_ajax.ajax_url, {
             action: 'control_send_manual_email',
@@ -1033,7 +1038,7 @@ jQuery(document).ready(function($) {
                 $('#bulk-actions-toolbar').hide();
                 $('#select-all-users').prop('checked', false);
             } else {
-                alert(res.data.message || 'حدث خطأ أثناء الإرسال');
+                alert(res.data.message || control_ajax.strings.mail_error);
             }
             $btn.prop('disabled', false).text(originalText);
         });

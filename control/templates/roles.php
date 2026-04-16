@@ -92,7 +92,7 @@ $available_permissions = Control_Auth::get_permissions_registry();
             <div class="control-grid" style="grid-template-columns: 1fr 1fr; gap:20px; margin-bottom:25px;">
                 <div class="control-form-group">
                     <label><?php _e('اسم الدور (بالعربية)', 'control'); ?></label>
-                    <input type="text" name="role_name" id="role-name-input" required placeholder="مثال: مدير تقني">
+                    <input type="text" name="role_name" id="role-name-input" required placeholder="<?php _e('مثال: مدير تقني', 'control'); ?>">
                 </div>
                 <div class="control-form-group">
                     <label><?php _e('مفتاح الدور (English Key)', 'control'); ?></label>
@@ -220,7 +220,7 @@ jQuery(document).ready(function($) {
             if (res.success) {
                 location.reload();
             } else {
-                alert(res.data || 'حدث خطأ');
+                alert(res.data || '<?php echo esc_js(__("حدث خطأ", "control")); ?>');
             }
         });
     });
@@ -258,7 +258,7 @@ jQuery(document).ready(function($) {
             if (res.success) {
                 location.reload();
             } else {
-                alert(res.data || 'حدث خطأ');
+                alert(res.data || '<?php echo esc_js(__("حدث خطأ", "control")); ?>');
                 $btn.prop('disabled', false).text('<?php _e("تأكيد الحذف النهائي", "control"); ?>');
             }
         });

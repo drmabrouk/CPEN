@@ -4,18 +4,18 @@ $can_manage = Control_Auth::is_admin();
 $role_labels = Control_Auth::get_roles();
 
 $countries = array(
-    '+20' => array('flag' => '🇪🇬', 'name' => 'مصر'),
-    '+971' => array('flag' => '🇦🇪', 'name' => 'الإمارات'),
-    '+966' => array('flag' => '🇸🇦', 'name' => 'السعودية'),
-    '+965' => array('flag' => '🇰🇼', 'name' => 'الكويت'),
-    '+974' => array('flag' => '🇶🇦', 'name' => 'قطر'),
-    '+973' => array('flag' => '🇧🇭', 'name' => 'البحرين'),
-    '+968' => array('flag' => '🇴🇲', 'name' => 'عمان'),
+    '+20' => array('flag' => '🇪🇬', 'name' => __('مصر', 'control')),
+    '+971' => array('flag' => '🇦🇪', 'name' => __('الإمارات', 'control')),
+    '+966' => array('flag' => '🇸🇦', 'name' => __('السعودية', 'control')),
+    '+965' => array('flag' => '🇰🇼', 'name' => __('الكويت', 'control')),
+    '+974' => array('flag' => '🇶🇦', 'name' => __('قطر', 'control')),
+    '+973' => array('flag' => '🇧🇭', 'name' => __('البحرين', 'control')),
+    '+968' => array('flag' => '🇴🇲', 'name' => __('عمان', 'control')),
 );
 
 if (!function_exists('control_get_time_ago')) {
 function control_get_time_ago($timestamp) {
-    if (!$timestamp) return 'غير نشط';
+    if (!$timestamp) return __('غير نشط', 'control');
 
     // Use WordPress local time for consistency with current_time('mysql')
     $time = is_numeric($timestamp) ? $timestamp : strtotime($timestamp);
@@ -23,15 +23,20 @@ function control_get_time_ago($timestamp) {
     $diff = $now - $time;
 
     if ($diff < 0) $diff = 0; // Prevent negative values from timezone mismatches
-    if ($diff < 60) return 'الآن';
+    if ($diff < 60) return __('الآن', 'control');
+
+    // For non-Arabic locales, use standard WordPress function
+    if ( get_locale() !== 'ar' ) {
+        return sprintf( __('%s ago', 'control'), human_time_diff( $time, $now ) );
+    }
 
     $units = array(
-        31536000 => 'سنة',
-        2592000  => 'شهر',
-        604800   => 'أسبوع',
-        86400    => 'يوم',
-        3600     => 'ساعة',
-        60       => 'دقيقة'
+        31536000 => __('سنة', 'control'),
+        2592000  => __('شهر', 'control'),
+        604800   => __('أسبوع', 'control'),
+        86400    => __('يوم', 'control'),
+        3600     => __('ساعة', 'control'),
+        60       => __('دقيقة', 'control')
     );
 
     foreach ($units as $unit => $label) {
@@ -39,29 +44,29 @@ function control_get_time_ago($timestamp) {
         $count = floor($diff / $unit);
 
         // Simple Arabic pluralization for common cases
-        if ($label == 'ساعة') {
-            if ($count == 1) return 'منذ ساعة';
-            if ($count == 2) return 'منذ ساعتين';
-            if ($count <= 10) return 'منذ ' . $count . ' ساعات';
-            return 'منذ ' . $count . ' ساعة';
+        if ($label == __('ساعة', 'control')) {
+            if ($count == 1) return __('منذ ساعة', 'control');
+            if ($count == 2) return __('منذ ساعتين', 'control');
+            if ($count <= 10) return sprintf(__('منذ %d ساعات', 'control'), $count);
+            return sprintf(__('منذ %d ساعة', 'control'), $count);
         }
-        if ($label == 'يوم') {
-            if ($count == 1) return 'منذ يوم';
-            if ($count == 2) return 'منذ يومين';
-            if ($count <= 10) return 'منذ ' . $count . ' أيام';
-            return 'منذ ' . $count . ' يوم';
+        if ($label == __('يوم', 'control')) {
+            if ($count == 1) return __('منذ يوم', 'control');
+            if ($count == 2) return __('منذ يومين', 'control');
+            if ($count <= 10) return sprintf(__('منذ %d أيام', 'control'), $count);
+            return sprintf(__('منذ %d يوم', 'control'), $count);
         }
-        if ($label == 'دقيقة') {
-            if ($count == 1) return 'منذ دقيقة';
-            if ($count == 2) return 'منذ دقيقتين';
-            if ($count <= 10) return 'منذ ' . $count . ' دقائق';
-            return 'منذ ' . $count . ' دقيقة';
+        if ($label == __('دقيقة', 'control')) {
+            if ($count == 1) return __('منذ دقيقة', 'control');
+            if ($count == 2) return __('منذ دقيقتين', 'control');
+            if ($count <= 10) return sprintf(__('منذ %d دقائق', 'control'), $count);
+            return sprintf(__('منذ %d دقيقة', 'control'), $count);
         }
 
-        return 'منذ ' . $count . ' ' . $label;
+        return sprintf(__('منذ %d %s', 'control'), $count, $label);
     }
 
-    return 'منذ فترة';
+    return __('منذ فترة', 'control');
 }
 }
 ?>
@@ -166,7 +171,7 @@ function control_get_time_ago($timestamp) {
 
             <!-- Badges Row -->
             <div style="position: absolute; top: 12px; left: 12px; display: flex; gap: 8px; align-items: center; z-index: 5;">
-                <div class="user-card-badge activity-badge" title="آخر ظهور">
+                <div class="user-card-badge activity-badge" title="<?php _e('آخر ظهور', 'control'); ?>">
                     <span class="dashicons dashicons-clock" style="font-size:12px; width:12px; height:12px; margin-left:4px;"></span>
                     <?php echo control_get_time_ago($u->last_activity); ?>
                 </div>
@@ -1068,17 +1073,17 @@ jQuery(document).ready(function($) {
 
         $.post(control_ajax.ajax_url, formData, function(res) {
             if (res.success) {
-                alert('تم حفظ البيانات بنجاح');
+                alert('<?php echo esc_js(__("تم حفظ البيانات بنجاح", "control")); ?>');
                 location.reload();
             } else {
-                alert(res.data || 'حدث خطأ أثناء الحفظ');
+                alert(res.data || '<?php echo esc_js(__("حدث خطأ أثناء الحفظ", "control")); ?>');
             }
         });
     });
 
     $('#upload-profile-image, #profile-image-preview').on('click', function(e) {
         e.preventDefault();
-        const frame = wp.media({ title: 'اختر صورة شخصية', multiple: false }).open();
+        const frame = wp.media({ title: '<?php echo esc_js(__("اختر صورة شخصية", "control")); ?>', multiple: false }).open();
         frame.on('select', function() {
             const attachment = frame.state().get('selection').first().toJSON();
             $('#user-profile-image').val(attachment.url);
@@ -1089,7 +1094,7 @@ jQuery(document).ready(function($) {
 
     $('#upload-org-logo, #org-logo-preview').on('click', function(e) {
         e.preventDefault();
-        const frame = wp.media({ title: 'اختر شعار جهة العمل', multiple: false }).open();
+        const frame = wp.media({ title: '<?php echo esc_js(__("اختر شعار جهة العمل", "control")); ?>', multiple: false }).open();
         frame.on('select', function() {
             const attachment = frame.state().get('selection').first().toJSON();
             $('#user-org-logo').val(attachment.url);
@@ -1214,7 +1219,7 @@ jQuery(document).ready(function($) {
                 if (res.success) {
                     alert(res.data);
                 } else {
-                    alert(res.data.message || 'حدث خطأ');
+                    alert(res.data.message || '<?php echo esc_js(__("حدث خطأ", "control")); ?>');
                 }
             });
         }
@@ -1238,7 +1243,7 @@ jQuery(document).ready(function($) {
             if (res.success) {
                 location.reload();
             } else {
-                alert(res.data || 'حدث خطأ');
+                alert(res.data || '<?php echo esc_js(__("حدث خطأ", "control")); ?>');
                 $btn.prop('disabled', false).text('<?php _e("نعم، احذف الآن", "control"); ?>');
             }
         });
@@ -1282,7 +1287,7 @@ jQuery(document).ready(function($) {
             if (res.success) {
                 location.reload();
             } else {
-                alert(res.data || 'حدث خطأ');
+                alert(res.data || '<?php echo esc_js(__("حدث خطأ", "control")); ?>');
                 $btn.prop('disabled', false).text('<?php _e("تأكيد التقييد", "control"); ?>');
             }
         });

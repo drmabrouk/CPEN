@@ -1211,7 +1211,7 @@ class Control_Ajax {
 		if ( ! Control_Auth::has_permission('emails_send') ) $this->send_error( 'Unauthorized', 403 );
 
 		$content = wp_unslash( $_POST['content'] ?? '' );
-		$content = str_replace( '{user_name}', 'اسم المستخدم التجريبي', $content );
+		$content = str_replace( '{user_name}', __('اسم المستخدم التجريبي', 'control'), $content );
 
 		$html = Control_Notifications::get_html_wrapper( $content );
 		$this->send_success( $html );

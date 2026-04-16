@@ -25,13 +25,13 @@
                 global $wpdb;
                 $user_data = $wpdb->get_row($wpdb->prepare("SELECT * FROM {$wpdb->prefix}control_staff WHERE id = %s", $u->id));
                 $countries = array(
-                    '+20' => array('flag' => '🇪🇬', 'name' => 'مصر'),
-                    '+971' => array('flag' => '🇦🇪', 'name' => 'الإمارات'),
-                    '+966' => array('flag' => '🇸🇦', 'name' => 'السعودية'),
-                    '+965' => array('flag' => '🇰🇼', 'name' => 'الكويت'),
-                    '+974' => array('flag' => '🇶🇦', 'name' => 'قطر'),
-                    '+973' => array('flag' => '🇧🇭', 'name' => 'البحرين'),
-                    '+968' => array('flag' => '🇴🇲', 'name' => 'عمان'),
+                    '+20' => array('flag' => '🇪🇬', 'name' => __('مصر', 'control')),
+                    '+971' => array('flag' => '🇦🇪', 'name' => __('الإمارات', 'control')),
+                    '+966' => array('flag' => '🇸🇦', 'name' => __('السعودية', 'control')),
+                    '+965' => array('flag' => '🇰🇼', 'name' => __('الكويت', 'control')),
+                    '+974' => array('flag' => '🇶🇦', 'name' => __('قطر', 'control')),
+                    '+973' => array('flag' => '🇧🇭', 'name' => __('البحرين', 'control')),
+                    '+968' => array('flag' => '🇴🇲', 'name' => __('عمان', 'control')),
                 );
             ?>
 
