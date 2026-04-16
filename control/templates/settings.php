@@ -76,7 +76,7 @@ $settings = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}control_settings",
 
                     <div class="control-form-group">
                         <label><?php _e('العنوان بالتفصيل (للتقارير)', 'control'); ?></label>
-                        <textarea name="company_address" rows="2" placeholder="العنوان هنا..."><?php echo esc_textarea($settings['company_address']->setting_value ?? ''); ?></textarea>
+                        <textarea name="company_address" rows="2" placeholder="<?php _e('العنوان هنا...', 'control'); ?>"><?php echo esc_textarea($settings['company_address']->setting_value ?? ''); ?></textarea>
                     </div>
 
                     <div class="control-form-group" style="background:var(--control-bg); padding:20px; border-radius:12px; border:1px solid var(--control-border); margin-top:15px;">
@@ -403,7 +403,10 @@ $settings = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}control_settings",
                                     'engagement_reminder' => __('تذكير التفاعل', 'control'),
                                     'password_reset' => __('استعادة كلمة المرور', 'control'),
                                     'account_restriction' => __('تنبيه التقييد', 'control'),
-                                    'new_login_alert' => __('تنبيه دخول جديد', 'control')
+                                    'new_login_alert' => __('تنبيه دخول جديد', 'control'),
+                                    'email_verification_otp' => __('رمز تحقق البريد', 'control'),
+                                    'password_reset_link' => __('رابط استعادة كلمة المرور', 'control'),
+                                    'password_recovery_otp' => __('رمز استعادة كلمة المرور', 'control')
                                 );
                                 foreach($all_tpls as $i => $t): ?>
                                     <button type="button" class="tpl-nav-btn <?php echo $i === 0 ? 'active' : ''; ?>" data-tpl="<?php echo $t->template_key; ?>">
@@ -635,7 +638,7 @@ $settings = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}control_settings",
 
                 <div id="reset-word-verification" style="display:none; margin-bottom:25px;">
                     <p style="font-size:0.8rem; margin-bottom:10px; color:#ef4444; font-weight:700;"><?php _e('أدخل كلمة "تأكيد" بالأسفل للمتابعة:', 'control'); ?></p>
-                    <input type="text" id="destructive-verify-word" placeholder="تأكيد" style="text-align:center; height:48px; font-weight:800; border-color:#fecdd3;">
+                    <input type="text" id="destructive-verify-word" placeholder="<?php _e('تأكيد', 'control'); ?>" style="text-align:center; height:48px; font-weight:800; border-color:#fecdd3;">
                 </div>
 
                 <div style="display:flex; gap:15px;">
@@ -806,13 +809,24 @@ $settings = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}control_settings",
                         <tbody id="control-audit-logs-body">
                             <?php
                             $action_map = array(
-                                'login' => 'تسجيل دخول',
-                                'failed_login' => 'فشل دخول',
-                                'add_user' => 'إضافة كادر',
-                                'edit_user' => 'تعديل كادر',
-                                'delete_user' => 'حذف كادر',
-                                'toggle_restriction' => 'تغيير حالة حساب',
-                                'restore_backup' => 'استعادة النظام'
+                                'login' => __('تسجيل دخول', 'control'),
+                                'failed_login' => __('فشل دخول', 'control'),
+                                'add_user' => __('إضافة كادر', 'control'),
+                                'edit_user' => __('تعديل كادر', 'control'),
+                                'delete_user' => __('حذف كادر', 'control'),
+                                'toggle_restriction' => __('تغيير حالة حساب', 'control'),
+                                'restore_backup' => __('استعادة النظام', 'control'),
+                                'registration' => __('تسجيل جديد', 'control'),
+                                'system_reset' => __('تصفير النظام', 'control'),
+                                'profile_update' => __('تحديث الملف الشخصي', 'control'),
+                                'edit_role' => __('تعديل دور', 'control'),
+                                'add_role' => __('إضافة دور', 'control'),
+                                'delete_role' => __('حذف دور', 'control'),
+                                'edit_policy' => __('تعديل سياسة', 'control'),
+                                'add_policy' => __('إضافة سياسة', 'control'),
+                                'delete_policy' => __('حذف سياسة', 'control'),
+                                'email_blast' => __('إرسال بريد جماعي', 'control'),
+                                'system_maintenance' => __('صيانة النظام', 'control')
                             );
                             $audit_logs = Control_Audit::get_logs();
                             foreach($audit_logs as $log):

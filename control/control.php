@@ -38,9 +38,49 @@ class Control_System {
 
 	private function __construct() {
 		$this->define_constants();
+		$this->handle_language_switch();
 		$this->includes();
 		$this->init_hooks();
 		$this->version_check();
+	}
+
+	private function handle_language_switch() {
+		if ( isset( $_GET['control_lang'] ) ) {
+			$lang = sanitize_text_field( $_GET['control_lang'] );
+			if ( in_array( $lang, array( 'ar', 'en' ) ) ) {
+				setcookie( 'control_lang', $lang, time() + ( 86400 * 30 ), COOKIEPATH, COOKIE_DOMAIN );
+				$_COOKIE['control_lang'] = $lang;
+			}
+		}
+
+		add_filter( 'plugin_locale', array( $this, 'set_plugin_locale' ), 20, 2 );
+		add_filter( 'locale', array( $this, 'set_wp_locale' ), 20 );
+	}
+
+	public function set_plugin_locale( $locale, $domain ) {
+		if ( $domain === 'control' ) {
+			$cookie_lang = isset( $_COOKIE['control_lang'] ) ? $_COOKIE['control_lang'] : '';
+			if ( $cookie_lang === 'en' ) {
+				return 'en_US';
+			} elseif ( $cookie_lang === 'ar' ) {
+				return 'ar';
+			}
+		}
+		return $locale;
+	}
+
+	public function set_wp_locale( $locale ) {
+		$is_control_page = ( isset( $_GET['page'] ) && strpos( $_GET['page'], 'control' ) !== false ) || isset( $_GET['control_view'] ) || ( defined( 'DOING_AJAX' ) && DOING_AJAX && isset( $_REQUEST['action'] ) && strpos( $_REQUEST['action'], 'control_' ) === 0 );
+
+		if ( $is_control_page ) {
+			$cookie_lang = isset( $_COOKIE['control_lang'] ) ? $_COOKIE['control_lang'] : '';
+			if ( $cookie_lang === 'en' ) {
+				return 'en_US';
+			} elseif ( $cookie_lang === 'ar' ) {
+				return 'ar';
+			}
+		}
+		return $locale;
 	}
 
 	private function version_check() {
@@ -71,12 +111,17 @@ class Control_System {
 
 	private function init_hooks() {
 		register_activation_hook( __FILE__, array( 'Control_Database', 'create_tables' ) );
+		add_action( 'init', array( $this, 'load_textdomain' ) );
 		add_action( 'init', array( 'Control_Auth', 'init' ) );
 		add_action( 'init', array( 'Control_Notifications', 'init' ) );
 		add_action( 'init', array( 'Control_PWA', 'init' ) );
 		add_action( 'init', array( $this, 'send_nocache_headers' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 		add_action( 'wp_head', array( $this, 'add_viewport_meta' ) );
+	}
+
+	public function load_textdomain() {
+		load_plugin_textdomain( 'control', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 	}
 
 	public function add_viewport_meta() {
@@ -118,6 +163,80 @@ class Control_System {
 			'home_url' => home_url(),
 			'logout_url' => wp_logout_url( home_url() ),
 			'nonce'    => wp_create_nonce( 'control_nonce' ),
+			'strings'  => array(
+				'backup_generating' => __( 'جاري توليد النسخة الاحتياطية...', 'control' ),
+				'backup_success'    => __( 'تم إنشاء النسخة الاحتياطية بنجاح.', 'control' ),
+				'backup_failed'     => __( 'فشل إنشاء النسخة الاحتياطية: ', 'control' ),
+				'restore_warning'   => __( 'تحذير هام: سيتم استبدال كافة البيانات الحالية. هل تريد الاستمرار؟', 'control' ),
+				'restore_success'   => __( 'تمت استعادة النظام بنجاح. سيتم إعادة تحميل الصفحة.', 'control' ),
+				'restore_error'     => __( 'خطأ في الاستعادة: ', 'control' ),
+				'otp_sent_error'    => __( 'فشل إرسال الرمز: ', 'control' ),
+				'unique_error'      => __( 'هذه القيمة مسجلة مسبقاً في النظام.', 'control' ),
+				'field_required'    => __( 'هذا الحقل مطلوب', 'control' ),
+				'phone_invalid'     => __( 'رقم الهاتف غير صالح', 'control' ),
+				'pass_mismatch'     => __( 'كلمة المرور غير متطابقة', 'control' ),
+				'logging_in'        => __( 'جاري التحقق...', 'control' ),
+				'login_btn'         => __( 'تسجيل الدخول للنظام', 'control' ),
+				'processing'        => __( 'جاري معالجة طلبك...', 'control' ),
+				'reg_complete_btn'  => __( 'إتمام التسجيل', 'control' ),
+				'updating'          => __( 'جاري التحديث...', 'control' ),
+				'update_pass_btn'   => __( 'تحديث كلمة المرور', 'control' ),
+				'sending'           => __( 'جاري الإرسال...', 'control' ),
+				'send_otp_btn'      => __( 'إرسال رمز التحقق', 'control' ),
+				'verifying'         => __( 'جاري التحقق...', 'control' ),
+				'verify_otp_btn'    => __( 'تحقق من الرمز', 'control' ),
+				'pass_short'        => __( 'كلمة المرور قصيرة جداً', 'control' ),
+				'saving'            => __( 'جاري الحفظ...', 'control' ),
+				'update_and_login'  => __( 'تحديث كلمة المرور والدخول', 'control' ),
+				'settings_saved'    => __( 'تم حفظ الإعدادات بنجاح', 'control' ),
+				'settings_error'    => __( 'خطأ أثناء الحفظ', 'control' ),
+				'logout_sync'       => __( 'جاري تسجيل الخروج وتأمين الحساب...', 'control' ),
+				'export_preparing'  => __( 'جاري التجهيز...', 'control' ),
+				'delete_confirm'    => __( 'هل أنت متأكد من حذف هذا السجل؟', 'control' ),
+				'log_details_title' => __( 'تفاصيل السجل', 'control' ),
+				'close'             => __( 'إغلاق', 'control' ),
+				'personal_info'     => __( 'المعلومات الشخصية', 'control' ),
+				'academic_info'     => __( 'المؤهلات الأكاديمية', 'control' ),
+				'professional_info' => __( 'المعلومات المهنية', 'control' ),
+				'account_settings'  => __( 'إعدادات الحساب', 'control' ),
+				'save_changes'      => __( 'حفظ التعديلات', 'control' ),
+				'confirmation_word' => __( 'تأكيد', 'control' ),
+				'confirm_prompt'    => __( 'يرجى كتابة كلمة "تأكيد" بشكل صحيح للمتابعة.', 'control' ),
+				'policy_delete'     => __( 'هل أنت متأكد من حذف هذه السياسة؟ لا يمكن التراجع عن هذا الإجراء.', 'control' ),
+				'policy_saved'      => __( 'تم حفظ السياسة بنجاح', 'control' ),
+				'save_policy'       => __( 'حفظ السياسة', 'control' ),
+				'select_user_first' => __( 'يرجى اختيار مستخدم واحد على الأقل من القائمة أولاً.', 'control' ),
+				'email_count_one'   => __( 'إرسال بريد لمستخدم واحد', 'control' ),
+				'email_count_many'  => __( 'إرسال بريد لـ %d مستخدم مختار', 'control' ),
+				'preparing_preview' => __( 'جاري توليد المعاينة...', 'control' ),
+				'confirm_send_mail' => __( 'هل أنت متأكد من رغبتك في إرسال هذا البريد الآن؟', 'control' ),
+				'general_error'     => __( 'حدث خطأ', 'control' ),
+				'otp_error'         => __( 'رمز التحقق غير صحيح أو انتهت صلاحيته.', 'control' ),
+				'sync_default'      => __( 'جارٍ تحميل البيانات...', 'control' ),
+				'sync_success'      => __( 'تم التحديث بنجاح', 'control' ),
+				'hard_refresh'      => __( 'جاري مسح التخزين المؤقت وتحديث ملفات النظام...', 'control' ),
+				'select_image'      => __( 'اختر صورة', 'control' ),
+				'admin_label'       => __( 'المسؤول:', 'control' ),
+				'action_label'      => __( 'العملية:', 'control' ),
+				'desc_label'        => __( 'الوصف:', 'control' ),
+				'device_label'      => __( 'الجهاز:', 'control' ),
+				'browser_label'     => __( 'المتصفح:', 'control' ),
+				'date_label'        => __( 'التاريخ:', 'control' ),
+				'meta_label'        => __( 'البيانات الوصفية:', 'control' ),
+				'select_profile_img'=> __( 'اختر صورة شخصية', 'control' ),
+				'save_success'      => __( 'تم الحفظ بنجاح', 'control' ),
+				'preparing'         => __( 'جاري التجهيز...', 'control' ),
+				'export_pkg_btn'    => __( 'تصدير الحزمة الآن', 'control' ),
+				'bulk_del_title'    => __( 'حذف كافة الحسابات', 'control' ),
+				'bulk_del_desc'     => __( 'أنت على وشك حذف كافة الكوادر البشرية المسجلة. لن يتم حذف حسابك الحالي. هذا الإجراء نهائي ولا يمكن التراجع عنه.', 'control' ),
+				'sys_reset_title'   => __( 'تصفير النظام بالكامل', 'control' ),
+				'sys_reset_desc'    => __( 'سيتم مسح كافة الكوادر، سجلات النشاط، والبيانات المدخلة. سيتم الحفاظ على إعدادات النظام، الأدوار، والقوالب فقط لضمان بقاء الهيكل الأساسي.', 'control' ),
+				'confirm_execute'   => __( 'نعم، تنفيذ الآن', 'control' ),
+				'add_policy_title'  => __( 'إضافة سياسة جديدة', 'control' ),
+				'edit_policy_title' => __( 'تحرير السياسة: ', 'control' ),
+				'sending_mail'      => __( 'جاري الإرسال...', 'control' ),
+				'mail_error'        => __( 'حدث خطأ أثناء الإرسال', 'control' ),
+			)
 		) );
 	}
 

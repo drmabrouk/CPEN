@@ -34,8 +34,8 @@
     .control-text-dark, .control-card h3 { color: #000 !important; font-weight: 800; }
     <?php endif; ?>
 </style>
-<div class="control-dashboard" id="control-system-root">
-    <div class="control-mobile-header" style="display:none; background:#000; padding:10px 15px; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:10005; border-bottom:1px solid #1a1a1a; direction: rtl;">
+<div class="control-dashboard" id="control-system-root" dir="<?php echo is_rtl() ? 'rtl' : 'ltr'; ?>">
+    <div class="control-mobile-header" style="display:none; background:#000; padding:10px 15px; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:10005; border-bottom:1px solid #1a1a1a;">
         <div class="mobile-header-logo" style="flex: 1; text-align: right;">
             <?php if ( $logo_url ) : ?>
                 <img src="<?php echo esc_url($logo_url); ?>" alt="Control" style="max-height:30px; width:auto; object-fit:contain; display:block;">
@@ -44,6 +44,13 @@
             <?php endif; ?>
         </div>
         <div style="display:flex; align-items:center; gap: 10px;">
+            <div class="control-lang-switcher-mobile">
+                <?php if ( get_locale() === 'ar' ) : ?>
+                    <a href="<?php echo add_query_arg( 'control_lang', 'en' ); ?>" class="lang-link">EN</a>
+                <?php else : ?>
+                    <a href="<?php echo add_query_arg( 'control_lang', 'ar' ); ?>" class="lang-link">AR</a>
+                <?php endif; ?>
+            </div>
             <button id="control-header-logout" class="control-pill-logout" style="background:#ef4444; color:#fff; border:none; border-radius:30px; padding:8px 16px; font-size:0.75rem; font-weight:800; cursor:pointer; display:flex; align-items:center; gap:6px;">
                 <span class="dashicons dashicons-no-alt" style="font-size:16px; width:16px; height:16px;"></span>
                 <span><?php _e('خروج', 'control'); ?></span>
@@ -87,6 +94,10 @@
         </nav>
 
         <div class="control-sidebar-footer">
+            <div class="control-lang-switcher-sidebar">
+                <a href="<?php echo add_query_arg( 'control_lang', 'ar' ); ?>" class="lang-btn <?php echo ( get_locale() === 'ar' ) ? 'active' : ''; ?>"><?php _e('عربي', 'control'); ?></a>
+                <a href="<?php echo add_query_arg( 'control_lang', 'en' ); ?>" class="lang-btn <?php echo ( get_locale() !== 'ar' ) ? 'active' : ''; ?>">English</a>
+            </div>
             <div class="sidebar-action-container">
                 <?php
                 $curr_u = Control_Auth::current_user();
@@ -143,7 +154,7 @@
     </div>
 
     <div id="control-sync-loader" style="display:none; position:fixed; top:20px; left:50%; transform:translateX(-50%); background:#000000; color:#fff; padding:10px 20px; border-radius:30px; z-index:10000; box-shadow:0 4px 12px rgba(0,0,0,0.2); font-weight:600;">
-        <span class="dashicons dashicons-update spin" style="margin-left:8px; vertical-align:middle;"></span>
+        <span class="dashicons dashicons-update spin" style="margin-inline-end:8px; vertical-align:middle;"></span>
         <span class="loader-text"><?php _e('جارٍ تحميل البيانات...', 'control'); ?></span>
     </div>
 
