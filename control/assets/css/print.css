@@ -1,0 +1,109 @@
+@media print {
+    /* Default Page Settings for Invoices */
+    @page {
+        size: auto;
+        margin: 10mm;
+    }
+
+    /* Sticker Specific Page Settings (Only when printing sticker) */
+    body.control-printing-sticker {
+        margin: 0;
+    }
+
+    body.control-printing-sticker @page {
+        size: 50mm 30mm;
+        margin: 0;
+    }
+
+    .control-sidebar, .control-header-flex.no-print, .control-btn, .control-nav, .control-export-actions, .control-sidebar-nav, .control-search-filters, #control-unlock-overlay {
+        display: none !important;
+    }
+
+    body {
+        background: #fff !important;
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', sans-serif;
+        color: #000;
+        direction: rtl;
+    }
+
+    .control-dashboard {
+        box-shadow: none !important;
+        border: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+        display: block !important;
+    }
+
+    .control-main-content {
+        padding: 0 !important;
+    }
+
+    /* Invoice Layout (Default Print) */
+    .invoice-container {
+        width: 190mm; /* A4 width minus margins */
+        margin: 10mm auto !important;
+        padding: 15mm !important;
+        border: 1px solid #eee !important;
+        box-sizing: border-box;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+        background: #fff;
+    }
+
+    /* Sticker Specifics */
+    #barcode-print-section {
+        display: none; /* Hidden by default in standard print */
+    }
+
+    body.control-printing-sticker #barcode-print-section {
+        display: block !important;
+        width: 50mm;
+        height: 30mm;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    .barcode-sticker {
+        width: 50mm;
+        height: 30mm;
+        padding: 2mm;
+        text-align: center;
+        border: 1px dashed #ccc !important;
+        page-break-inside: avoid;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .barcode-sticker .product-name {
+        font-size: 8pt;
+        font-weight: 700;
+        margin-bottom: 1mm;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .barcode-sticker svg {
+        width: 45mm !important;
+        height: 18mm !important;
+    }
+}
+
+/* Hide everything else when printing */
+@media print {
+    .control-content-inner > *:not(#barcode-print-section):not(.invoice-container) {
+        display: none !important;
+    }
+
+    body.control-printing-sticker .invoice-container {
+        display: none !important;
+    }
+}
