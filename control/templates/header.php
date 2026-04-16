@@ -46,9 +46,9 @@
         <div style="display:flex; align-items:center; gap: 10px;">
             <div class="control-lang-switcher-mobile">
                 <?php if ( get_locale() === 'ar' ) : ?>
-                    <a href="<?php echo add_query_arg( 'control_lang', 'en' ); ?>" class="lang-link">EN</a>
+                    <a href="<?php echo add_query_arg( 'control_lang', 'en' ); ?>" class="lang-link">🇺🇸 <?php _e('English', 'control'); ?></a>
                 <?php else : ?>
-                    <a href="<?php echo add_query_arg( 'control_lang', 'ar' ); ?>" class="lang-link">AR</a>
+                    <a href="<?php echo add_query_arg( 'control_lang', 'ar' ); ?>" class="lang-link">🇪🇬 <?php _e('Arabic', 'control'); ?></a>
                 <?php endif; ?>
             </div>
             <button id="control-header-logout" class="control-pill-logout" style="background:#ef4444; color:#fff; border:none; border-radius:30px; padding:8px 16px; font-size:0.75rem; font-weight:800; cursor:pointer; display:flex; align-items:center; gap:6px;">
@@ -95,8 +95,12 @@
 
         <div class="control-sidebar-footer">
             <div class="control-lang-switcher-sidebar">
-                <a href="<?php echo add_query_arg( 'control_lang', 'ar' ); ?>" class="lang-btn <?php echo ( get_locale() === 'ar' ) ? 'active' : ''; ?>"><?php _e('عربي', 'control'); ?></a>
-                <a href="<?php echo add_query_arg( 'control_lang', 'en' ); ?>" class="lang-btn <?php echo ( get_locale() !== 'ar' ) ? 'active' : ''; ?>">English</a>
+                <a href="<?php echo add_query_arg( 'control_lang', 'ar' ); ?>" class="lang-btn <?php echo ( get_locale() === 'ar' ) ? 'active' : ''; ?>">
+                    <span>🇪🇬</span> <?php _e('Arabic', 'control'); ?>
+                </a>
+                <a href="<?php echo add_query_arg( 'control_lang', 'en' ); ?>" class="lang-btn <?php echo ( get_locale() !== 'ar' ) ? 'active' : ''; ?>">
+                    <span>🇺🇸</span> <?php _e('English', 'control'); ?>
+                </a>
             </div>
             <div class="sidebar-action-container">
                 <?php
