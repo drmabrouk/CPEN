@@ -40,7 +40,6 @@ class Control_System {
 		$this->define_constants();
 		$this->includes();
 		$this->init_hooks();
-		$this->version_check();
 	}
 
 	private function handle_language_switch() {
@@ -133,6 +132,7 @@ class Control_System {
 
 	private function init_hooks() {
 		register_activation_hook( __FILE__, array( 'Control_Database', 'create_tables' ) );
+		add_action( 'init', array( $this, 'version_check' ), 5 );
 		add_action( 'init', array( $this, 'handle_language_switch' ), 1 );
 		add_action( 'init', array( $this, 'load_textdomain' ) );
 		add_action( 'init', array( 'Control_Auth', 'init' ) );

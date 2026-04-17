@@ -78,8 +78,10 @@ class Control_Shortcode {
 		if ( empty($policies) ) return '';
 
 		ob_start();
+		$dir = is_rtl() ? 'rtl' : 'ltr';
+		$align = is_rtl() ? 'right' : 'left';
 		?>
-		<div class="control-policies-display" style="direction: rtl; text-align: right; font-family: 'Rubik', sans-serif; line-height: 1.8; color: #334155; background: #fff; padding: 40px; border-radius: 20px; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 900px; margin: 40px auto;">
+		<div class="control-policies-display" style="direction: <?php echo $dir; ?>; text-align: <?php echo $align; ?>; font-family: 'Rubik', sans-serif; line-height: 1.8; color: #334155; background: #fff; padding: 40px; border-radius: 20px; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 900px; margin: 40px auto;">
 			<?php foreach($policies as $policy): ?>
 				<div class="policy-item" style="margin-bottom: 40px;">
 					<h2 style="color:var(--control-primary); font-weight:800; border-bottom: 2px solid var(--control-bg); padding-bottom:10px; margin-bottom:20px;"><?php echo esc_html($policy->title); ?></h2>
