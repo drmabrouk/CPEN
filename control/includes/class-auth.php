@@ -156,6 +156,17 @@ class Control_Auth {
 		$_SESSION['control_user_role'] = $user->role;
 		$_SESSION['control_user_first_name'] = $user->first_name;
 		$_SESSION['control_user_last_name']  = $user->last_name;
+
+		// Load language preference from user meta if available
+		$wp_u = get_user_by( 'login', $user->username ) ?: get_user_by( 'email', $user->email );
+		if ( $wp_u ) {
+			$lang = get_user_meta( $wp_u->ID, 'control_lang', true );
+			if ( $lang ) {
+				$_SESSION['control_lang'] = $lang;
+				setcookie( 'control_lang', $lang, time() + ( 86400 * 30 ), COOKIEPATH, COOKIE_DOMAIN );
+			}
+		}
+
 		return true;
 	}
 
@@ -225,6 +236,7 @@ class Control_Auth {
 		unset( $_SESSION['control_user_role'] );
 		unset( $_SESSION['control_user_first_name'] );
 		unset( $_SESSION['control_user_last_name'] );
+		unset( $_SESSION['control_lang'] );
 
 		// Clear native WordPress session and cookies
 		wp_logout();

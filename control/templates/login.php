@@ -77,7 +77,7 @@ $sub_text = $auth_settings['auth_subtitle_text']->setting_value ?? __('نظام 
                         <input type="password" name="password" required placeholder="<?php _e('كلمة المرور', 'control'); ?>">
                         <label><?php _e('كلمة المرور', 'control'); ?></label>
                     </div>
-                    <div style="text-align: left; margin-top: -15px; margin-bottom: 10px;">
+                    <div style="text-align: end; margin-top: -15px; margin-bottom: 10px;">
                         <button type="button" id="switch-to-forgot" class="forgot-password-link"><?php _e('نسيت كلمة المرور؟', 'control'); ?></button>
                     </div>
                 </div>

@@ -52,7 +52,7 @@ $available_permissions = Control_Auth::get_permissions_registry();
 </div>
 
 <!-- Role Delete Confirmation Modal -->
-<div id="role-delete-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:100002; align-items:center; justify-content:center; backdrop-filter: blur(8px); direction: rtl;">
+<div id="role-delete-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:100002; align-items:center; justify-content:center; backdrop-filter: blur(8px); direction: <?php echo is_rtl() ? "rtl" : "ltr"; ?>;">
     <div class="control-card" style="width:100%; max-width:450px; padding:35px; text-align:center; border-radius:24px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
         <div style="width:80px; height:80px; background:#fef2f2; color:#ef4444; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 25px;">
             <span class="dashicons dashicons-trash" style="font-size:40px; width:40px; height:40px;"></span>

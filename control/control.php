@@ -38,7 +38,6 @@ class Control_System {
 
 	private function __construct() {
 		$this->define_constants();
-		$this->handle_language_switch();
 		$this->includes();
 		$this->init_hooks();
 		$this->version_check();
@@ -50,19 +49,42 @@ class Control_System {
 			if ( in_array( $lang, array( 'ar', 'en' ) ) ) {
 				setcookie( 'control_lang', $lang, time() + ( 86400 * 30 ), COOKIEPATH, COOKIE_DOMAIN );
 				$_COOKIE['control_lang'] = $lang;
+
+				// Save to user meta if logged in
+				if ( is_user_logged_in() ) {
+					update_user_meta( get_current_user_id(), 'control_lang', $lang );
+				}
 			}
 		}
+	}
 
-		add_filter( 'plugin_locale', array( $this, 'set_plugin_locale' ), 20, 2 );
-		add_filter( 'locale', array( $this, 'set_wp_locale' ), 20 );
+	private function get_current_language() {
+		$lang = '';
+
+		// 1. Priority: URL param
+		if ( isset( $_GET['control_lang'] ) ) {
+			$lang = sanitize_text_field( $_GET['control_lang'] );
+		}
+
+		// 2. User Meta (Persistent per account)
+		if ( ! $lang && is_user_logged_in() ) {
+			$lang = get_user_meta( get_current_user_id(), 'control_lang', true );
+		}
+
+		// 3. Cookie (Guest/Session preference)
+		if ( ! $lang && isset( $_COOKIE['control_lang'] ) ) {
+			$lang = $_COOKIE['control_lang'];
+		}
+
+		return in_array( $lang, array( 'ar', 'en' ) ) ? $lang : 'ar';
 	}
 
 	public function set_plugin_locale( $locale, $domain ) {
 		if ( $domain === 'control' ) {
-			$cookie_lang = isset( $_COOKIE['control_lang'] ) ? $_COOKIE['control_lang'] : '';
-			if ( $cookie_lang === 'en' ) {
+			$lang = $this->get_current_language();
+			if ( $lang === 'en' ) {
 				return 'en_US';
-			} elseif ( $cookie_lang === 'ar' ) {
+			} elseif ( $lang === 'ar' ) {
 				return 'ar';
 			}
 		}
@@ -73,10 +95,10 @@ class Control_System {
 		$is_control_page = ( isset( $_GET['page'] ) && strpos( $_GET['page'], 'control' ) !== false ) || isset( $_GET['control_view'] ) || ( defined( 'DOING_AJAX' ) && DOING_AJAX && isset( $_REQUEST['action'] ) && strpos( $_REQUEST['action'], 'control_' ) === 0 );
 
 		if ( $is_control_page ) {
-			$cookie_lang = isset( $_COOKIE['control_lang'] ) ? $_COOKIE['control_lang'] : '';
-			if ( $cookie_lang === 'en' ) {
+			$lang = $this->get_current_language();
+			if ( $lang === 'en' ) {
 				return 'en_US';
-			} elseif ( $cookie_lang === 'ar' ) {
+			} elseif ( $lang === 'ar' ) {
 				return 'ar';
 			}
 		}
@@ -111,8 +133,12 @@ class Control_System {
 
 	private function init_hooks() {
 		register_activation_hook( __FILE__, array( 'Control_Database', 'create_tables' ) );
+		add_action( 'init', array( $this, 'handle_language_switch' ), 1 );
 		add_action( 'init', array( $this, 'load_textdomain' ) );
 		add_action( 'init', array( 'Control_Auth', 'init' ) );
+
+		add_filter( 'plugin_locale', array( $this, 'set_plugin_locale' ), 20, 2 );
+		add_filter( 'locale', array( $this, 'set_wp_locale' ), 20 );
 		add_action( 'init', array( 'Control_Notifications', 'init' ) );
 		add_action( 'init', array( 'Control_PWA', 'init' ) );
 		add_action( 'init', array( $this, 'send_nocache_headers' ) );

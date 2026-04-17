@@ -628,7 +628,7 @@ $settings = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}control_settings",
         </div>
 
         <!-- Destructive Action Confirmation Modal -->
-        <div id="control-destructive-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0, 0, 0, 0.7); z-index:100002; align-items:center; justify-content:center; backdrop-filter: blur(8px); direction: rtl;">
+        <div id="control-destructive-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0, 0, 0, 0.7); z-index:100002; align-items:center; justify-content:center; backdrop-filter: blur(8px); direction: <?php echo is_rtl() ? "rtl" : "ltr"; ?>;">
             <div class="control-card" style="width:100%; max-width:450px; padding:35px; text-align:center; border-radius:24px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
                 <div style="width:80px; height:80px; background:#fef2f2; color:#ef4444; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 25px;">
                     <span class="dashicons dashicons-warning" style="font-size:40px; width:40px; height:40px;"></span>
@@ -705,7 +705,7 @@ $settings = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}control_settings",
         </div>
 
         <!-- Policy Edit Modal -->
-        <div id="control-policy-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0, 0, 0, 0.7); z-index:100002; align-items:center; justify-content:center; backdrop-filter: blur(8px); direction: rtl;">
+        <div id="control-policy-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0, 0, 0, 0.7); z-index:100002; align-items:center; justify-content:center; backdrop-filter: blur(8px); direction: <?php echo is_rtl() ? "rtl" : "ltr"; ?>;">
             <div class="control-card" style="width:100%; max-width:800px; padding:35px; border-radius:24px;">
                 <h3 id="policy-modal-title" style="margin-bottom:25px; color:var(--control-text-dark); font-weight:800;"><?php _e('تحرير السياسة', 'control'); ?></h3>
                 <form id="control-policy-form">
