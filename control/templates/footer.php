@@ -3,7 +3,7 @@
 </div><!-- .control-dashboard -->
 
 <!-- Self Profile Modal -->
-<div id="self-profile-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:100000; align-items:center; justify-content:center; backdrop-filter: blur(4px); direction: rtl;">
+<div id="self-profile-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:100000; align-items:center; justify-content:center; backdrop-filter: blur(4px); direction: <?php echo is_rtl() ? "rtl" : "ltr"; ?>;">
     <div class="control-card" style="width:100%; max-width:650px; padding:0; border-radius:20px; overflow:hidden; box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.25);">
         <div style="background:var(--control-primary); color:#fff; padding:25px 30px; display:flex; justify-content:space-between; align-items:center;">
             <div>

@@ -36,7 +36,7 @@
 </style>
 <div class="control-dashboard" id="control-system-root" dir="<?php echo is_rtl() ? 'rtl' : 'ltr'; ?>">
     <div class="control-mobile-header" style="display:none; background:#000; padding:10px 15px; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:10005; border-bottom:1px solid #1a1a1a;">
-        <div class="mobile-header-logo" style="flex: 1; text-align: right;">
+        <div class="mobile-header-logo" style="flex: 1; text-align: start;">
             <?php if ( $logo_url ) : ?>
                 <img src="<?php echo esc_url($logo_url); ?>" alt="Control" style="max-height:30px; width:auto; object-fit:contain; display:block;">
             <?php else : ?>
@@ -46,9 +46,13 @@
         <div style="display:flex; align-items:center; gap: 10px;">
             <div class="control-lang-switcher-mobile">
                 <?php if ( get_locale() === 'ar' ) : ?>
-                    <a href="<?php echo add_query_arg( 'control_lang', 'en' ); ?>" class="lang-link">🇺🇸 <?php _e('English', 'control'); ?></a>
+                    <a href="<?php echo add_query_arg( 'control_lang', 'en' ); ?>" class="lang-link">
+                        <span class="flag-icon">🇺🇸</span> English
+                    </a>
                 <?php else : ?>
-                    <a href="<?php echo add_query_arg( 'control_lang', 'ar' ); ?>" class="lang-link">🇪🇬 <?php _e('Arabic', 'control'); ?></a>
+                    <a href="<?php echo add_query_arg( 'control_lang', 'ar' ); ?>" class="lang-link">
+                        <span class="flag-icon">🇪🇬</span> <?php _e('العربية', 'control'); ?>
+                    </a>
                 <?php endif; ?>
             </div>
             <button id="control-header-logout" class="control-pill-logout" style="background:#ef4444; color:#fff; border:none; border-radius:30px; padding:8px 16px; font-size:0.75rem; font-weight:800; cursor:pointer; display:flex; align-items:center; gap:6px;">
@@ -96,10 +100,10 @@
         <div class="control-sidebar-footer">
             <div class="control-lang-switcher-sidebar">
                 <a href="<?php echo add_query_arg( 'control_lang', 'ar' ); ?>" class="lang-btn <?php echo ( get_locale() === 'ar' ) ? 'active' : ''; ?>">
-                    <span>🇪🇬</span> <?php _e('Arabic', 'control'); ?>
+                    <span class="flag-icon">🇪🇬</span> <?php _e('العربية', 'control'); ?>
                 </a>
                 <a href="<?php echo add_query_arg( 'control_lang', 'en' ); ?>" class="lang-btn <?php echo ( get_locale() !== 'ar' ) ? 'active' : ''; ?>">
-                    <span>🇺🇸</span> <?php _e('English', 'control'); ?>
+                    <span class="flag-icon">🇺🇸</span> <?php _e('English', 'control'); ?>
                 </a>
             </div>
             <div class="sidebar-action-container">
