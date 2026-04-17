@@ -112,9 +112,13 @@ class Control_Notifications {
 			return self::get_classic_theme($header_content, $content, $system_name);
 		}
 
+		$dir = is_rtl() ? 'rtl' : 'ltr';
+		$lang_attr = (get_locale() === 'ar') ? 'ar' : 'en';
+		$text_align = is_rtl() ? 'right' : 'left';
+
 		return '
 		<!DOCTYPE html>
-		<html dir="rtl" lang="ar">
+		<html dir="' . $dir . '" lang="' . $lang_attr . '">
 		<head>
 			<meta charset="UTF-8">
 			<style>
@@ -122,7 +126,7 @@ class Control_Notifications {
 				.email-container { max-width: 600px; margin: 20px auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
 				.header { background: ' . $primary_color . '; padding: 30px; text-align: center; color: #ffffff; }
 				.header h1 { margin: 0; font-size: 24px; }
-				.body { padding: 40px 30px; line-height: 1.6; color: #333; text-align: right; }
+				.body { padding: 40px 30px; line-height: 1.6; color: #333; text-align: ' . $text_align . '; }
 				.footer { background: #f8fafc; padding: 20px; text-align: center; font-size: 12px; color: #94a3b8; border-top: 1px solid #e2e8f0; }
 				.btn { display: inline-block; padding: 12px 25px; background: ' . $primary_color . '; color: #ffffff !important; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 20px; }
 			</style>
@@ -145,9 +149,11 @@ class Control_Notifications {
 	}
 
 	private static function get_classic_theme($header, $content, $system_name) {
+		$dir = is_rtl() ? 'rtl' : 'ltr';
+		$lang_attr = (get_locale() === 'ar') ? 'ar' : 'en';
 		return '
 		<!DOCTYPE html>
-		<html dir="rtl" lang="ar">
+		<html dir="' . $dir . '" lang="' . $lang_attr . '">
 		<head>
 			<meta charset="UTF-8">
 			<style>

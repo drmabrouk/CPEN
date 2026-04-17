@@ -51,7 +51,7 @@ class Control_System {
 				$_COOKIE['control_lang'] = $lang;
 
 				// Save to user meta if logged in
-				if ( is_user_logged_in() ) {
+				if ( function_exists( 'is_user_logged_in' ) && is_user_logged_in() && function_exists( 'get_current_user_id' ) ) {
 					update_user_meta( get_current_user_id(), 'control_lang', $lang );
 				}
 			}
@@ -67,7 +67,7 @@ class Control_System {
 		}
 
 		// 2. User Meta (Persistent per account)
-		if ( ! $lang && is_user_logged_in() ) {
+		if ( ! $lang && function_exists( 'is_user_logged_in' ) && is_user_logged_in() && function_exists( 'get_current_user_id' ) ) {
 			$lang = get_user_meta( get_current_user_id(), 'control_lang', true );
 		}
 
